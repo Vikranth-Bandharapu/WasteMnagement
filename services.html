@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore EcoWaste Solutions' premium services, including residential collection, commercial waste systems, hazardous disposal, dumpster rentals, e-waste, and sustainability consulting.">
+    <title>Services | EcoWaste Solutions</title>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Specific page layout tweaks */
+        .services-grid {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        .service-details-list {
+            list-style: none;
+            margin: 1.25rem 0 2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        .service-details-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        .service-details-list i {
+            color: var(--accent);
+            margin-top: 4px;
+            font-size: 0.875rem;
+        }
+        .services-intro-section {
+            background-color: var(--bg-white);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header header-light">
+        <div class="container header-container">
+            <a href="index.html" class="logo logo-text-light" id="headerLogo">
+    <img src="Assests/logo.webp" alt="EcoWaste Logo" class="logo-img">
+</a>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                 <a href="about.html" class="nav-link" >About-Us</a>
+                <a href="services.html" class="nav-link active">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="header-cta">
+                <a href="login.html" class="nav-link login-nav-btn" style="color: inherit; padding: 0.5rem 0;">Log In</a>
+                <a href="signup.html" class="btn btn-accent btn-sm">Sign Up</a>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle Mobile Menu" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Slide-Out -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="nav-link">Home</a>
+         <a href="about.html" class="nav-link" >About-Us</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="login.html" class="nav-link">Log In</a>
+        <a href="signup.html" class="nav-link">Sign Up</a>
+    </div>
+
+    <!-- Page Banner Section -->
+    <section class="page-banner">
+        <div class="page-banner-overlay"></div>
+        <img src="Assests/dustbin.webp" alt="Recycling center and sorting operations" class="page-banner-bg">
+        <div class="container">
+            <h1>Our Premium Waste Services</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Services</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Intro Section -->
+    <section class="services-intro-section section-padding">
+        <div class="container text-center reveal reveal-fade-up">
+            <h2 style="font-size: 2.25rem; margin-bottom: 1.5rem; color: var(--primary);">Environmentally Safe, Professional, Compliant</h2>
+            <p style="max-width: 800px; margin-left: auto; margin-right: auto; color: var(--text-muted); font-size: 1.125rem; line-height: 1.7;">EcoWaste Solutions provides full-service infrastructure for houses, retailers, manufacturing factories, and construction sites. All operations are strictly EPA compliant and tracked to supply transparent landfill diversion metrics.</p>
+        </div>
+    </section>
+
+    <!-- Detailed Services Cards -->
+    <section class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="grid services-grid">
+                
+                <!-- Service 1: Residential Waste -->
+                <div class="glass-card reveal reveal-fade-up" id="residential">
+                    <div class="service-icon"><i class="fas fa-home"></i></div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Residential Waste Collection</h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">Weekly curbside collections using automated green vehicles that prioritize neighborhood safety.</p>
+                    <ul class="service-details-list">
+                        <li><i class="fas fa-check-circle"></i> Weekly trash and bi-weekly recycling collection schedules</li>
+                        <li><i class="fas fa-check-circle"></i> Specialized organic/yard waste composting containers</li>
+                        <li><i class="fas fa-check-circle"></i> Scheduled bulk pickup options for appliances & furniture</li>
+                        <li><i class="fas fa-check-circle"></i> Free homeowner education recycling directives</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-primary btn-sm">Request Setup</a>
+                </div>
+
+                <!-- Service 2: Commercial Waste -->
+                <div class="glass-card reveal reveal-fade-up" id="commercial" style="transition-delay: 0.05s;">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Commercial Waste Collection</h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">Custom bin sizes and routing frequency to keep retail, office, and restaurant areas clean.</p>
+                    <ul class="service-details-list">
+                        <li><i class="fas fa-check-circle"></i> Container sizes ranging from 2 to 8 cubic yards</li>
+                        <li><i class="fas fa-check-circle"></i> Service frequencies up to 6 days per week</li>
+                        <li><i class="fas fa-check-circle"></i> Odor-controlling seals for grocery and food industries</li>
+                        <li><i class="fas fa-check-circle"></i> Combined recycling & trash bundling discounts</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-primary btn-sm">Request Setup</a>
+                </div>
+
+                <!-- Service 3: Industrial Waste -->
+                <div class="glass-card reveal reveal-fade-up" id="industrial" style="transition-delay: 0.1s;">
+                    <div class="service-icon"><i class="fas fa-industry"></i></div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Industrial Waste Management</h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">Heavy compactors and bulk haulage systems engineered for warehouses and factories.</p>
+                    <ul class="service-details-list">
+                        <li><i class="fas fa-check-circle"></i> Large-capacity stationary waste compactors</li>
+                        <li><i class="fas fa-check-circle"></i> Non-hazardous manufacturing byproduct transport</li>
+                        <li><i class="fas fa-check-circle"></i> Live manifests and electronic tracking metrics</li>
+                        <li><i class="fas fa-check-circle"></i> On-site container logistics management</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-primary btn-sm">Request Setup</a>
+                </div>
+
+                <!-- Service 4: Recycling Services -->
+                <div class="glass-card reveal reveal-fade-up" id="recycling">
+                    <div class="service-icon"><i class="fas fa-recycle"></i></div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Recycling Services</h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">Innovative single-stream processes that make segregating and sorting materials simple.</p>
+                    <ul class="service-details-list">
+                        <li><i class="fas fa-check-circle"></i> Single-stream sort lines (co-mingled collection)</li>
+                        <li><i class="fas fa-check-circle"></i> Dedicated paper and cardboard baler rental programs</li>
+                        <li><i class="fas fa-check-circle"></i> Scrap metal recovery (copper, aluminum, iron, brass)</li>
+                        <li><i class="fas fa-check-circle"></i> Clean organic wood-scrap bio-shredding</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-primary btn-sm">Request Setup</a>
+                </div>
+
+                <!-- Service 5: E-Waste Disposal -->
+                <div class="glass-card reveal reveal-fade-up" id="ewaste" style="transition-delay: 0.05s;">
+                    <div class="service-icon"><i class="fas fa-laptop"></i></div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">E-Waste Disposal</h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">Certified computer and IT component processing to reclaim metals and secure data.</p>
+                    <ul class="service-details-list">
+                        <li><i class="fas fa-check-circle"></i> Certified data destruction and disk shredding</li>
+                        <li><i class="fas fa-check-circle"></i> Computer screens, servers, phones, and wiring reclamation</li>
+                        <li><i class="fas fa-check-circle"></i> Toxic heavy-metal extraction (avoiding water leaks)</li>
+                        <li><i class="fas fa-check-circle"></i> Certificates of Destruction for corporate audits</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-primary btn-sm">Request Setup</a>
+                </div>
+
+                <!-- Service 6: Hazardous Handling -->
+                <div class="glass-card reveal reveal-fade-up" id="hazardous" style="transition-delay: 0.1s;">
+                    <div class="service-icon"><i class="fas fa-biohazard"></i></div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Hazardous Waste Handling</h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">Authorized chemical, medical, and biological waste treatment for safety and compliance.</p>
+                    <ul class="service-details-list">
+                        <li><i class="fas fa-check-circle"></i> EPA-certified dangerous materials transport vehicles</li>
+                        <li><i class="fas fa-check-circle"></i> Industrial chemical acids and solvents neutralization</li>
+                        <li><i class="fas fa-check-circle"></i> Medical bio-waste containment and autoclave services</li>
+                        <li><i class="fas fa-check-circle"></i> Emergency spill cleanup response packages</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-primary btn-sm">Request Setup</a>
+                </div>
+
+                <!-- Service 7: Dumpster Rental -->
+                <div class="glass-card reveal reveal-fade-up" id="dumpster">
+                    <div class="service-icon"><i class="fas fa-dumpster"></i></div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Dumpster Rental</h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">Roll-off dumpsters ideal for construction sites, spring cleaning, and remodeling.</p>
+                    <ul class="service-details-list">
+                        <li><i class="fas fa-check-circle"></i> Sizes available: 10, 20, 30, and 40 cubic yards</li>
+                        <li><i class="fas fa-check-circle"></i> Prompt 24-hour deliveries and pickups</li>
+                        <li><i class="fas fa-check-circle"></i> Flat-rate pricing with zero hidden environmental fees</li>
+                        <li><i class="fas fa-check-circle"></i> Permits assistance for street and sidewalk placing</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-primary btn-sm">Request Setup</a>
+                </div>
+
+                <!-- Service 8: Waste Auditing -->
+                <div class="glass-card reveal reveal-fade-up" id="auditing" style="transition-delay: 0.05s;">
+                    <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Waste Auditing</h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">In-depth volumetric audits to find cost-reduction areas and improve separation rates.</p>
+                    <ul class="service-details-list">
+                        <li><i class="fas fa-check-circle"></i> Physical volumetric analysis of generated waste streams</li>
+                        <li><i class="fas fa-check-circle"></i> Cost projection models based on separation improvement</li>
+                        <li><i class="fas fa-check-circle"></i> Municipal and state environmental regulatory compliance reviews</li>
+                        <li><i class="fas fa-check-circle"></i> Container layout mapping and color-coding directives</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-primary btn-sm">Request Setup</a>
+                </div>
+
+                <!-- Service 9: Sustainability Consulting -->
+                <div class="glass-card reveal reveal-fade-up" id="consulting" style="transition-delay: 0.1s;">
+                    <div class="service-icon"><i class="fas fa-leaf"></i></div>
+                    <h3 style="font-size: 1.35rem; margin-bottom: 0.5rem;">Sustainability Consulting</h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">Expert strategies to align your corporation's supply chain and emissions with ESG criteria.</p>
+                    <ul class="service-details-list">
+                        <li><i class="fas fa-check-circle"></i> Scope 1, 2, and 3 carbon footprint diagnostics</li>
+                        <li><i class="fas fa-check-circle"></i> Carbon offset and green credit certification tracking</li>
+                        <li><i class="fas fa-check-circle"></i> Interactive employee recycling webinars & training</li>
+                        <li><i class="fas fa-check-circle"></i> Circular product packaging transition designs</li>
+                    </ul>
+                    <a href="404.html" class="btn btn-primary btn-sm">Request Setup</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                   <a href="index.html" class="logo logo-text-light" id="headerLogo">
+    <img src="Assests/logo.webp" alt="EcoWaste Logo" class="logo-img">
+</a>
+                    <p>Providing premium, certified waste disposal, hazardous handling, and circular economy services. We turn waste into value.</p>
+                     <div class="social-links">
+                        <a href="404.html" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-title">EcoWaste</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="sustainability.html">Sustainability</a></li>
+                        <li><a href="blog.html">News & Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                 <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">Residential Waste</a></li>
+                        <li><a href="404.html">Commercial Waste</a></li>
+                        <li><a href="404.html">Industrial Disposal</a></li>
+                        <li><a href="404.html">Recycling Programs</a></li>
+                        <li><a href="404.html">E-Waste Auditing</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact info -->
+                <div>
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>100 Green Tech Parkway, Suite 400, Eco City,Hyderabad</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span><a href="tel:+18005553269">9876543210</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="mailto:solutions@ecowaste.com">Stackly@ecowaste.com</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 stackly. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" aria-label="Back to Top"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        const header = document.querySelector('.header');
+        const logo = document.getElementById('headerLogo');
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('header-light');
+                logo.classList.remove('logo-text-light');
+            } else {
+                header.classList.add('header-light');
+                logo.classList.add('logo-text-light');
+            }
+        });
+    </script>
+</body>
+</html>

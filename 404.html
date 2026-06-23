@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Oops! The page you are looking for does not exist. It has been recycled or moved.">
+    <title>Page Recycled (404) | EcoWaste Solutions</title>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+   
+    <!-- 404 Main Content -->
+    <section class="hero" style="min-height: 90vh;">
+        <div class="hero-overlay" style="background: linear-gradient(135deg, rgba(9, 90, 59, 0.85) 0%, rgba(15, 23, 42, 0.95) 100%);"></div>
+        <img src="https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?auto=format&fit=crop&w=1950&q=80" alt="Recycling center background" class="hero-bg-img">
+        <div class="container">
+            <div class="reveal reveal-fade-up text-center" style="max-width: 600px; margin: 0 auto; z-index: 2; position: relative;">
+                <div style="font-size: 8rem; font-weight: 800; font-family: 'Outfit'; color: var(--accent); line-height: 1; margin-bottom: 1.5rem;">404</div>
+                <h1 style="font-size: 2.5rem; color: white; margin-bottom: 1.5rem;">This Page Has Been Recycled</h1>
+                <p style="color: rgba(255, 255, 255, 0.8); font-size: 1.125rem; margin-bottom: 2.5rem;">The resources you are looking for have been sorted, composted, or diverted from our server path. Let's redirect you to the main logistics loop.</p>
+               <a href="#" class="btn btn-accent" onclick="history.back(); return false;">
+    <i class="fas fa-arrow-left"></i> Go Back
+</a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" aria-label="Back to Top"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        const header = document.querySelector('.header');
+        const logo = document.getElementById('headerLogo');
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('header-light');
+                logo.classList.remove('logo-text-light');
+            } else {
+                header.classList.add('header-light');
+                logo.classList.add('logo-text-light');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Discover EcoWaste Solutions' recycling process, check our interactive accepted-materials list, view resource-conservation statistics, and learn how we protect the environment.">
+    <title>Recycling | EcoWaste Solutions</title>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header header-light">
+        <div class="container header-container">
+            <a href="index.html" class="logo logo-text-light" id="headerLogo">
+                <i class="fas fa-recycle"></i> EcoWaste
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="header-cta">
+                <a href="login.html" class="nav-link login-nav-btn" style="color: inherit; padding: 0.5rem 0;">Log In</a>
+                <a href="signup.html" class="btn btn-accent btn-sm">Sign Up</a>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle Mobile Menu" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Slide-Out -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="login.html" class="nav-link">Log In</a>
+        <a href="signup.html" class="nav-link">Sign Up</a>
+    </div>
+
+    <!-- Page Banner Section -->
+    <section class="page-banner">
+        <div class="page-banner-overlay"></div>
+        <img src="https://images.unsplash.com/photo-1591193686104-fddbaae26b33?auto=format&fit=crop&w=1950&q=80" alt="Recycling bin close up" class="page-banner-bg">
+        <div class="container">
+            <h1>Our Recycling Ecosystem</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Recycling</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Infographic: The Recycling Process -->
+    <section class="section-padding" style="background-color: var(--bg-white);">
+        <div class="container">
+            <div class="section-header reveal reveal-fade-up">
+                <h2>The Recycling Journey</h2>
+                <p>Follow how your discarded items travel from curbside collections to being engineered back into manufacturing loops.</p>
+            </div>
+            
+            <div class="grid recycling-steps-grid">
+                <!-- Step 1 -->
+                <div class="step-card reveal reveal-fade-up">
+                    <div class="step-number">1</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-truck text-accent"></i> Collection</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted);">Our fleet collects municipal residential and corporate recycling materials, keeping routes carbon optimized.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="step-card reveal reveal-fade-up" style="transition-delay: 0.1s;">
+                    <div class="step-number">2</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-tags text-accent"></i> Smart Sorting</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted);">Optical sensors, magnets, and manual sorting isolate paper, plastics, glass, and steel into distinct pure channels.</p>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="step-card reveal reveal-fade-up" style="transition-delay: 0.2s;">
+                    <div class="step-number">3</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-blender text-accent"></i> Processing</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted);">Sorted items are shredded, washed, melted down, or pulped into raw industrial-grade materials.</p>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="step-card reveal reveal-fade-up" style="transition-delay: 0.3s;">
+                    <div class="step-number">4</div>
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-redo text-accent"></i> Re-manufacturing</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted);">Pellets, pulps, and metal sheets are supplied to factories to construct brand new consumer goods.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Materials Accepted Section -->
+    <section class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="section-header reveal reveal-fade-up">
+                <h2>Accepted Materials Guide</h2>
+                <p>Use our interactive checker to understand what items can enter single-stream bins and how they must be prepared.</p>
+            </div>
+            
+            <!-- Filter Buttons -->
+            <div class="materials-filter reveal reveal-fade-up">
+                <button class="filter-btn active" data-filter="all">All Items</button>
+                <button class="filter-btn" data-filter="plastics">Plastics</button>
+                <button class="filter-btn" data-filter="paper">Paper & Cardboard</button>
+                <button class="filter-btn" data-filter="metals">Metals</button>
+                <button class="filter-btn" data-filter="glass">Glass</button>
+                <button class="filter-btn" data-filter="restricted">Special Handling</button>
+            </div>
+            
+            <!-- Materials Grid -->
+            <div class="grid grid-3" id="materialsGrid">
+                
+                <!-- Material 1 -->
+                <div class="glass-card material-card reveal reveal-fade-in" data-category="plastics">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-bottle-water text-accent"></i> PET Bottles (No. 1)</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); flex-grow: 1;">Beverage bottles, mouthwash containers, and salad dressing jars.</p>
+                    <div style="font-size: 0.8125rem; margin-top: 1rem; color: var(--text-dark);"><strong>Prep:</strong> Rinse thoroughly and replace plastic cap.</div>
+                    <span class="material-status accepted"><i class="fas fa-check"></i> Accepted</span>
+                </div>
+
+                <!-- Material 2 -->
+                <div class="glass-card material-card reveal reveal-fade-in" data-category="plastics" style="transition-delay: 0.05s;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-bucket text-accent"></i> HDPE Containers (No. 2)</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); flex-grow: 1;">Milk jugs, laundry detergent canisters, and shampoo bottles.</p>
+                    <div style="font-size: 0.8125rem; margin-top: 1rem; color: var(--text-dark);"><strong>Prep:</strong> Empty completely, rinse, pump-nozzles removed.</div>
+                    <span class="material-status accepted"><i class="fas fa-check"></i> Accepted</span>
+                </div>
+
+                <!-- Material 3 -->
+                <div class="glass-card material-card reveal reveal-fade-in" data-category="paper" style="transition-delay: 0.1s;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-box text-accent"></i> Cardboard Boxes</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); flex-grow: 1;">Corrugated packaging boxes, shipping boxes, and shoe storage containers.</p>
+                    <div style="font-size: 0.8125rem; margin-top: 1rem; color: var(--text-dark);"><strong>Prep:</strong> Remove tape and staples, flatten completely. Keep dry.</div>
+                    <span class="material-status accepted"><i class="fas fa-check"></i> Accepted</span>
+                </div>
+
+                <!-- Material 4 -->
+                <div class="glass-card material-card reveal reveal-fade-in" data-category="paper">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-newspaper text-accent"></i> Newspapers & Mail</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); flex-grow: 1;">Magazines, office letters, paper bags, envelopes, and flyers.</p>
+                    <div style="font-size: 0.8125rem; margin-top: 1rem; color: var(--text-dark);"><strong>Prep:</strong> Remove plastic wraps, metallic stickers, and window glues.</div>
+                    <span class="material-status accepted"><i class="fas fa-check"></i> Accepted</span>
+                </div>
+
+                <!-- Material 5 -->
+                <div class="glass-card material-card reveal reveal-fade-in" data-category="metals" style="transition-delay: 0.05s;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-can-food text-accent"></i> Aluminum & Tin Cans</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); flex-grow: 1;">Soda cans, canned food containers, clean foil wraps.</p>
+                    <div style="font-size: 0.8125rem; margin-top: 1rem; color: var(--text-dark);"><strong>Prep:</strong> Rinse chemical residues off. Flattening is optional.</div>
+                    <span class="material-status accepted"><i class="fas fa-check"></i> Accepted</span>
+                </div>
+
+                <!-- Material 6 -->
+                <div class="glass-card material-card reveal reveal-fade-in" data-category="glass" style="transition-delay: 0.1s;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-whiskey-glass text-accent"></i> Glass Jars & Bottles</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); flex-grow: 1;">Clear, amber, and green glass condiment jars or drink bottles.</p>
+                    <div style="font-size: 0.8125rem; margin-top: 1rem; color: var(--text-dark);"><strong>Prep:</strong> Rinse and dry. Remove metal lids (recycle lids separately).</div>
+                    <span class="material-status accepted"><i class="fas fa-check"></i> Accepted</span>
+                </div>
+
+                <!-- Material 7 -->
+                <div class="glass-card material-card reveal reveal-fade-in" data-category="restricted">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-plug text-accent"></i> Tech Electronics</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); flex-grow: 1;">Old phones, computers, power adaptors, printers, circuit boards.</p>
+                    <div style="font-size: 0.8125rem; margin-top: 1rem; color: var(--text-dark);"><strong>Warning:</strong> Cannot go in household bins. Must schedule dropoff.</div>
+                    <span class="material-status restricted"><i class="fas fa-exclamation-triangle"></i> Special Handling</span>
+                </div>
+
+                <!-- Material 8 -->
+                <div class="glass-card material-card reveal reveal-fade-in" data-category="restricted" style="transition-delay: 0.05s;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-car-battery text-accent"></i> Batteries</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); flex-grow: 1;">Lithium-ion phone batteries, rechargeable batteries, car batteries.</p>
+                    <div style="font-size: 0.8125rem; margin-top: 1rem; color: var(--text-dark);"><strong>Warning:</strong> Highly reactive. Fire hazard if crushed in regular trucks.</div>
+                    <span class="material-status restricted"><i class="fas fa-exclamation-triangle"></i> Special Handling</span>
+                </div>
+
+                <!-- Material 9 -->
+                <div class="glass-card material-card reveal reveal-fade-in" data-category="restricted" style="transition-delay: 0.1s;">
+                    <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;"><i class="fas fa-lightbulb text-accent"></i> Light Bulbs</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); flex-grow: 1;">Fluorescent tubes, LED lights, mercury vapor bulbs.</p>
+                    <div style="font-size: 0.8125rem; margin-top: 1rem; color: var(--text-dark);"><strong>Warning:</strong> Contains toxic vapor. Take to certified facility.</div>
+                    <span class="material-status restricted"><i class="fas fa-exclamation-triangle"></i> Special Handling</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Recycling Statistics Section -->
+    <section class="section-padding" style="background-color: var(--primary); color: var(--bg-white);">
+        <div class="container">
+            <div class="section-header reveal reveal-fade-up">
+                <h2 class="text-white">Annual Conservation Metrics</h2>
+                <p style="color: rgba(255, 255, 255, 0.75);">The resource equivalents saved by EcoWaste Solutions sorting operations last year.</p>
+            </div>
+            
+            <div class="grid grid-4" style="text-align: center;">
+                <div class="reveal reveal-fade-in">
+                    <div style="font-size: 3rem; color: var(--accent); font-weight: 800; font-family: 'Outfit', sans-serif;">4.2M</div>
+                    <h4 class="text-white" style="margin: 0.5rem 0;">Trees Saved</h4>
+                    <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">By recycling paper products and cardboard shipping boxes.</p>
+                </div>
+                <div class="reveal reveal-fade-in" style="transition-delay: 0.05s;">
+                    <div style="font-size: 3rem; color: var(--accent); font-weight: 800; font-family: 'Outfit', sans-serif;">1.8B</div>
+                    <h4 class="text-white" style="margin: 0.5rem 0;">Gallons of Water</h4>
+                    <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">Saved by refining recycled metals & glass over raw raw ore mining.</p>
+                </div>
+                <div class="reveal reveal-fade-in" style="transition-delay: 0.1s;">
+                    <div style="font-size: 3rem; color: var(--accent); font-weight: 800; font-family: 'Outfit', sans-serif;">1.2M</div>
+                    <h4 class="text-white" style="margin: 0.5rem 0;">Cubic Yards</h4>
+                    <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">Of landfill space preserved through active organic bio-composting.</p>
+                </div>
+                <div class="reveal reveal-fade-in" style="transition-delay: 0.15s;">
+                    <div style="font-size: 3rem; color: var(--accent); font-weight: 800; font-family: 'Outfit', sans-serif;">380K</div>
+                    <h4 class="text-white" style="margin: 0.5rem 0;">MWh of Energy</h4>
+                    <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">Conserved by re-melting secondary material pellets over new extraction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Environmental Benefits Detail -->
+    <section class="section-padding" style="background-color: var(--bg-white);">
+        <div class="container">
+            <div class="grid grid-2" style="align-items: center;">
+                <div class="reveal reveal-slide-right">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=800&q=80" alt="Recycling plastic close up" style="border-radius: var(--radius-lg); box-shadow: var(--glass-shadow-large); width: 100%; height: 380px; object-fit: cover;">
+                </div>
+                <div class="reveal reveal-slide-left">
+                    <h2 style="font-size: 2rem; margin-bottom: 1.5rem; color: var(--primary);">Understanding the Circular Lifecycle</h2>
+                    <p style="margin-bottom: 1.25rem;">Refining recycled aluminum, for instance, requires 95% less energy than processing raw bauxite ore. Glass can be recycled infinitely without losing purity or durability.</p>
+                    <p style="margin-bottom: 1.25rem;">When plastics sit in municipal dumps, they break down into micro-plastics that permeate agricultural soils and clean drinking aquifers. Composting organic materials prevents anaerobic decay, which releases heavy methane gas.</p>
+                    <p>At EcoWaste, we believe every piece of rubbish has potential. By learning how to segregate items and prep them correctly, you contribute directly to stopping resource depletion.</p>
+                    <a href="404.html" class="btn btn-accent" style="margin-top: 1.5rem;">Read Recycling Tips & Guides</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <a href="index.html" class="logo logo-text-light" style="font-size: 1.75rem;">
+                        <i class="fas fa-recycle"></i> EcoWaste
+                    </a>
+                    <p>Providing premium, certified waste disposal, hazardous handling, and circular economy services. We turn waste into value.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-title">EcoWaste</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="sustainability.html">Sustainability</a></li>
+                        <li><a href="blog.html">News & Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="404.html">Residential Waste</a></li>
+                        <li><a href="404.html">Commercial Waste</a></li>
+                        <li><a href="404.html">Industrial Disposal</a></li>
+                        <li><a href="404.html">Recycling Programs</a></li>
+                        <li><a href="404.html">E-Waste Auditing</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact info -->
+                <div>
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>100 Green Tech Parkway, Suite 400, Eco City, EC 94002</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span><a href="tel:+18005553269">+1 (800) 555-3269</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="mailto:solutions@ecowaste.com">solutions@ecowaste.com</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 EcoWaste Solutions Inc. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" aria-label="Back to Top"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script>
+        const header = document.querySelector('.header');
+        const logo = document.getElementById('headerLogo');
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('header-light');
+                logo.classList.remove('logo-text-light');
+            } else {
+                header.classList.add('header-light');
+                logo.classList.add('logo-text-light');
+            }
+        });
+    </script>
+</body>
+</html>

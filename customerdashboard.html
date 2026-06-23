@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Portal | EcoWaste Solutions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+}
+.header {
+    background: #095a3b;
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #10b981;
+    text-decoration: none;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.user-email {
+    font-weight: 600;
+    font-size: 0.875rem;
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+}
+.logout-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.logout-btn:hover {
+    background: #ff4a4a;
+    border-color: #ff4a4a;
+}
+.container {
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+.welcome-bar {
+    margin-bottom: 2rem;
+}
+.welcome-bar h1 {
+    font-size: 2rem;
+    color: #0f172a;
+}
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.card {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+}
+.card-icon {
+    font-size: 2rem;
+    color: #10b981;
+    margin-bottom: 1rem;
+}
+.card h3 {
+    font-size: 1rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+.card-val {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: auto;
+}
+.card-btn {
+    margin-top: 1.25rem;
+    background: #095a3b;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.3s;
+}
+.card-btn:hover {
+    background: #10b981;
+}
+.card-btn-outline {
+    background: transparent;
+    border: 1.5px solid #095a3b;
+    color: #095a3b;
+}
+.card-btn-outline:hover {
+    background: #095a3b;
+    color: white;
+}
+.layout-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+@media(min-width: 900px) {
+    .layout-columns {
+        grid-template-columns: 1.5fr 1fr;
+    }
+}
+.panel {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+.panel h2 {
+    font-size: 1.25rem;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 0.75rem;
+}
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+.schedule-item:last-child {
+    border-bottom: none;
+}
+.schedule-info h4 {
+    font-size: 1rem;
+    color: #0f172a;
+}
+.schedule-info p {
+    font-size: 0.8125rem;
+    color: #64748b;
+}
+.schedule-badge {
+    background: #d1fae5;
+    color: #065f46;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 30px;
+    text-transform: uppercase;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #f8fafc;
+}
+.form-control:focus {
+    border-color: #10b981;
+    background: white;
+}
+/* Toast style */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #065f46;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(150%);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1000;
+}
+.toast.show {
+    transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo"><i class="fas fa-recycle"></i> EcoWaste</a>
+    <div class="user-info">
+        <span class="user-email" id="emailDisplay">Loading User...</span>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+</header>
+
+<div class="container">
+    <div class="welcome-bar">
+        <h1>Welcome back to EcoWaste!</h1>
+        <p style="color: #64748b;">Manage your collections, track invoice billing details, and request container upgrades.</p>
+    </div>
+
+    <!-- Stats Grid -->
+    <div class="dashboard-grid">
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-truck"></i></div>
+            <h3>Next Trash Collection</h3>
+            <div class="card-val" style="font-size: 1.5rem; margin-top: 0.25rem;">Tomorrow, June 23</div>
+            <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.25rem;">Green bin curbside placement by 6:00 AM</p>
+            <a href="#" class="card-btn card-btn-outline" onclick="triggerToast('Remind Notification: Set for tomorrow!')">Set Reminder</a>
+        </div>
+        
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+            <h3>Outstanding Bill</h3>
+            <div class="card-val">$42.50</div>
+            <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.25rem;">Billing cycle: June 1 - June 30</p>
+            <a href="#" class="card-btn" onclick="triggerToast('Success: Outstanding bill of $42.50 has been settled.')">Pay Bill Now</a>
+        </div>
+
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-seedling"></i></div>
+            <h3>Ecological Impact</h3>
+            <div class="card-val">342 lbs</div>
+            <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.25rem;">Equivalent to 4.8 trees conserved!</p>
+            <a href="sustainability.html" class="card-btn card-btn-outline">View Sustainability Metrics</a>
+        </div>
+    </div>
+
+    <!-- Bottom Layout Panels -->
+    <div class="layout-columns">
+        <!-- Collection Schedules -->
+        <div class="panel">
+            <h2>Upcoming Pickups Schedule</h2>
+            
+            <div class="schedule-item">
+                <div class="schedule-info">
+                    <h4>Household Garbage Collection</h4>
+                    <p>Frequency: Weekly (Every Tuesday)</p>
+                </div>
+                <span class="schedule-badge">Active</span>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-info">
+                    <h4>Single-Stream Recycling Collection</h4>
+                    <p>Frequency: Bi-Weekly (Next: Tuesday, June 30)</p>
+                </div>
+                <span class="schedule-badge">Active</span>
+            </div>
+
+            <div class="schedule-item">
+                <div class="schedule-info">
+                    <h4>Organic Composting collection</h4>
+                    <p>Frequency: Bi-Weekly (Next: Tuesday, June 30)</p>
+                </div>
+                <span class="schedule-badge" style="background:#e0f2fe; color:#0369a1;">Optional bin</span>
+            </div>
+        </div>
+
+        <!-- Request Swap Form -->
+        <div class="panel">
+            <h2>Request Dumpster Swap / Extra Pickup</h2>
+            <form id="requestForm">
+                <div class="form-group">
+                    <label for="reqType">Request Action</label>
+                    <select id="reqType" class="form-control">
+                        <option value="missed">Report Missed Pickup</option>
+                        <option value="swap">Upgrade Trash Bin Size</option>
+                        <option value="extra">Request Bulk Waste Removal</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="comments">Description & Details</label>
+                    <textarea id="comments" class="form-control" style="min-height: 80px;" placeholder="Provide dates, sizes, or comments..."></textarea>
+                </div>
+
+                <button type="submit" class="card-btn" style="width: 100%; border: none;">Submit Request</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toastBox">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastText">Action completed successfully.</span>
+</div>
+
+<script>
+    // Load local storage session email
+    const email = localStorage.getItem('ecoUserEmail') || 'customer@gmail.com';
+    document.getElementById('emailDisplay').innerText = email;
+
+    // Logout handling
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        localStorage.removeItem('ecoUserEmail');
+        window.location.href = 'index.html';
+    });
+
+    // Form submit mockup
+    document.getElementById('requestForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        triggerToast('Request Submitted: Our operations staff has received your inquiry.');
+        document.getElementById('comments').value = '';
+    });
+
+    // Toast triggers
+    function triggerToast(text) {
+        const box = document.getElementById('toastBox');
+        const span = document.getElementById('toastText');
+        span.innerText = text;
+        box.classList.add('show');
+        setTimeout(() => {
+            box.classList.remove('show');
+        }, 4000);
+    }
+</script>
+
+</body>
+</html>

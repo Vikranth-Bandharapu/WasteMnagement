@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operations Console | EcoWaste Solutions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+body {
+    background-color: #0f172a;
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+.header {
+    background: #095a3b;
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #10b981;
+    text-decoration: none;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.user-role {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    background: #10b981;
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 30px;
+}
+.user-email {
+    font-weight: 600;
+    font-size: 0.875rem;
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+}
+.logout-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.logout-btn:hover {
+    background: #ff4a4a;
+    border-color: #ff4a4a;
+}
+.container {
+    max-width: 1200px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+.console-title {
+    margin-bottom: 2rem;
+}
+.console-title h1 {
+    font-size: 2rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.console-title h1 span {
+    color: #10b981;
+}
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.metric-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+}
+.metric-icon {
+    font-size: 1.75rem;
+    color: #10b981;
+    margin-bottom: 0.75rem;
+}
+.metric-card h3 {
+    font-size: 0.8125rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.25rem;
+}
+.metric-val {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: white;
+}
+.metric-sub {
+    font-size: 0.8125rem;
+    color: #64748b;
+    margin-top: auto;
+    padding-top: 0.5rem;
+}
+.layout-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+@media(min-width: 900px) {
+    .layout-columns {
+        grid-template-columns: 1.25fr 1fr;
+    }
+}
+.panel {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 16px;
+    padding: 2rem;
+}
+.panel h2 {
+    font-size: 1.25rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 0.75rem;
+}
+/* Work Orders Table */
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    text-align: left;
+}
+.orders-table th {
+    padding: 0.75rem 0.5rem;
+    color: #94a3b8;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+    font-weight: 600;
+}
+.orders-table td {
+    padding: 1rem 0.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.status-badge {
+    background: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+.action-btn {
+    background: #095a3b;
+    border: none;
+    color: white;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.action-btn:hover {
+    background: #10b981;
+}
+
+/* Material Chart Bar Styling */
+.chart-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+.bar-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+.bar-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+}
+.bar-outer {
+    height: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+}
+.bar-inner {
+    height: 100%;
+    background: linear-gradient(90deg, #095a3b, #10b981);
+    border-radius: 6px;
+    transition: width 1s ease-in-out;
+}
+/* Toast style */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #095a3b;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    transform: translateY(150%);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1000;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+.toast.show {
+    transform: translateY(0);
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo"><i class="fas fa-recycle"></i> EcoWaste</a>
+    <div class="user-info">
+        <span class="user-role">Operations Manager</span>
+        <span class="user-email" id="emailDisplay">Loading Manager...</span>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+</header>
+
+<div class="container">
+    <div class="console-title">
+        <h1>EcoWaste <span>Operations Management Console</span></h1>
+        <p style="color: #94a3b8;">Real-time automated sorting, carbon neutrality, and logistics scheduling tracking.</p>
+    </div>
+
+    <!-- Metrics Cards -->
+    <div class="metrics-grid">
+        <div class="metric-card">
+            <div class="metric-icon"><i class="fas fa-truck-loading"></i></div>
+            <h3>Active Fleet Status</h3>
+            <div class="metric-val">148 / 150</div>
+            <p class="metric-sub"><i class="fas fa-circle" style="color: #10b981; font-size: 0.75rem;"></i> 2 units in maintenance</p>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-icon"><i class="fas fa-recycle"></i></div>
+            <h3>Daily Diversion Total</h3>
+            <div class="metric-val">384.2 Tons</div>
+            <p class="metric-sub"><i class="fas fa-arrow-up" style="color: #10b981;"></i> 4.2% increase from yesterday</p>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-icon"><i class="fas fa-solar-panel"></i></div>
+            <h3>Robotic Plant Solar</h3>
+            <div class="metric-val">14.8 MWh</div>
+            <p class="metric-sub"><i class="fas fa-bolt" style="color: #fbbf24;"></i> Facilities fully self-powered</p>
+        </div>
+
+        <div class="metric-card">
+            <div class="metric-icon"><i class="fas fa-circle-exclamation"></i></div>
+            <h3>Active Dispatch Incidents</h3>
+            <div class="metric-val" style="color: #ef4444;">0</div>
+            <p class="metric-sub" style="color: #10b981;"><i class="fas fa-check-circle"></i> Clean fleet log</p>
+        </div>
+    </div>
+
+    <!-- Panels -->
+    <div class="layout-columns">
+        <!-- Work Orders Table -->
+        <div class="panel">
+            <h2>Pending Customer Requests</h2>
+            
+            <table class="orders-table">
+                <thead>
+                    <tr>
+                        <th>Client</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="ordersBody">
+                    <tr id="row1">
+                        <td>Apex Industries</td>
+                        <td>E-Waste Pickup</td>
+                        <td><span class="status-badge">Pending</span></td>
+                        <td><button class="action-btn" onclick="processOrder('row1', 'Apex Industries')">Dispatch</button></td>
+                    </tr>
+                    <tr id="row2">
+                        <td>Constructo Group</td>
+                        <td>Dumpster Swap</td>
+                        <td><span class="status-badge">Pending</span></td>
+                        <td><button class="action-btn" onclick="processOrder('row2', 'Constructo Group')">Dispatch</button></td>
+                    </tr>
+                    <tr id="row3">
+                        <td>Emerald Hills</td>
+                        <td>Bulk Pickup</td>
+                        <td><span class="status-badge">Pending</span></td>
+                        <td><button class="action-btn" onclick="processOrder('row3', 'Emerald Hills')">Dispatch</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Material Sorted Split Chart -->
+        <div class="panel">
+            <h2>Sorting Plant Fractions (Today)</h2>
+            
+            <div class="chart-container">
+                <!-- Fraction 1 -->
+                <div class="bar-row">
+                    <div class="bar-info">
+                        <span>Cardboard & Fibers</span>
+                        <span>40% (153.6 Tons)</span>
+                    </div>
+                    <div class="bar-outer">
+                        <div class="bar-inner" style="width: 40%;"></div>
+                    </div>
+                </div>
+
+                <!-- Fraction 2 -->
+                <div class="bar-row">
+                    <div class="bar-info">
+                        <span>Reclaimed Metals</span>
+                        <span>25% (96.0 Tons)</span>
+                    </div>
+                    <div class="bar-outer">
+                        <div class="bar-inner" style="width: 25%;"></div>
+                    </div>
+                </div>
+
+                <!-- Fraction 3 -->
+                <div class="bar-row">
+                    <div class="bar-info">
+                        <span>Polymers / Plastics</span>
+                        <span>20% (76.8 Tons)</span>
+                    </div>
+                    <div class="bar-outer">
+                        <div class="bar-inner" style="width: 20%;"></div>
+                    </div>
+                </div>
+
+                <!-- Fraction 4 -->
+                <div class="bar-row">
+                    <div class="bar-info">
+                        <span>Reclaimed Glass Jars</span>
+                        <span>15% (57.8 Tons)</span>
+                    </div>
+                    <div class="bar-outer">
+                        <div class="bar-inner" style="width: 15%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toastBox">
+    <i class="fas fa-check-circle" style="color: #10b981;"></i>
+    <span id="toastText">Order processed.</span>
+</div>
+
+<script>
+    // Load local storage session email
+    const email = localStorage.getItem('ecoUserEmail') || 'manager@ecowaste.com';
+    document.getElementById('emailDisplay').innerText = email;
+
+    // Logout handling
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        localStorage.removeItem('ecoUserEmail');
+        window.location.href = 'index.html';
+    });
+
+    // Process order action
+    function processOrder(rowId, clientName) {
+        const row = document.getElementById(rowId);
+        if (row) {
+            row.style.opacity = '0.4';
+            const badge = row.querySelector('.status-badge');
+            badge.innerText = 'Dispatched';
+            badge.style.background = 'rgba(59, 130, 246, 0.15)';
+            badge.style.color = '#3b82f6';
+            const btn = row.querySelector('.action-btn');
+            btn.disabled = true;
+            btn.innerText = 'Sent';
+            btn.style.background = '#475569';
+            triggerToast(`Dispatched collection vehicle to ${clientName}.`);
+        }
+    }
+
+    // Toast triggers
+    function triggerToast(text) {
+        const box = document.getElementById('toastBox');
+        const span = document.getElementById('toastText');
+        span.innerText = text;
+        box.classList.add('show');
+        setTimeout(() => {
+            box.classList.remove('show');
+        }, 4000);
+    }
+</script>
+
+</body>
+</html>
