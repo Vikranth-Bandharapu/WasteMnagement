@@ -52,6 +52,7 @@ function initMobileMenu() {
     mobileMenuBtn.addEventListener('click', (e) => {
         e.stopPropagation();
         mobileNav.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
         
         // Toggle mobile icon (bars vs times)
         const icon = mobileMenuBtn.querySelector('i');
@@ -64,11 +65,14 @@ function initMobileMenu() {
     // Close menu when clicking outside
     document.addEventListener('click', (e) => {
         if (!mobileNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
-            mobileNav.classList.remove('active');
-            const icon = mobileMenuBtn.querySelector('i');
-            if (icon) {
-                icon.classList.add('fa-bars');
-                icon.classList.remove('fa-times');
+            if (mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                document.body.classList.remove('no-scroll');
+                const icon = mobileMenuBtn.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
             }
         }
     });
