@@ -16,6 +16,7 @@ body {
     background-color: #0f172a;
     color: #cbd5e1;
     line-height: 1.6;
+    padding-top: 80px; /* Offset for fixed header */
 }
 .header {
     background: #095a3b;
@@ -25,6 +26,11 @@ body {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 .logo {
     display: flex;
@@ -237,6 +243,66 @@ body {
 .toast.show {
     transform: translateY(0);
 }
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    .header {
+        padding: 0.75rem 1.5rem;
+    }
+    .user-info {
+        gap: 0.75rem;
+    }
+    .user-role {
+        display: none; /* Hide role badge on mobile to save space */
+    }
+    .user-email {
+        max-width: 140px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    .logout-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    .container {
+        margin: 1.5rem auto;
+        padding: 0 1rem;
+    }
+    .console-title h1 {
+        font-size: 1.5rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    .metrics-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .metric-card {
+        padding: 1.25rem 1.5rem;
+    }
+    .orders-table th, .orders-table td {
+        padding: 0.75rem 0.4rem;
+        font-size: 0.8rem;
+    }
+}
+@media (max-width: 480px) {
+    .logo-img {
+        height: 32px;
+    }
+    .user-email {
+        max-width: 100px;
+    }
+}
 </style>
 </head>
 <body>
@@ -293,36 +359,38 @@ body {
         <div class="panel">
             <h2>Pending Customer Requests</h2>
             
-            <table class="orders-table">
-                <thead>
-                    <tr>
-                        <th>Client</th>
-                        <th>Type</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody id="ordersBody">
-                    <tr id="row1">
-                        <td>Apex Industries</td>
-                        <td>E-Waste Pickup</td>
-                        <td><span class="status-badge">Pending</span></td>
-                        <td><button class="action-btn" onclick="processOrder('row1', 'Apex Industries')">Dispatch</button></td>
-                    </tr>
-                    <tr id="row2">
-                        <td>Constructo Group</td>
-                        <td>Dumpster Swap</td>
-                        <td><span class="status-badge">Pending</span></td>
-                        <td><button class="action-btn" onclick="processOrder('row2', 'Constructo Group')">Dispatch</button></td>
-                    </tr>
-                    <tr id="row3">
-                        <td>Emerald Hills</td>
-                        <td>Bulk Pickup</td>
-                        <td><span class="status-badge">Pending</span></td>
-                        <td><button class="action-btn" onclick="processOrder('row3', 'Emerald Hills')">Dispatch</button></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div style="overflow-x: auto; width: 100%;">
+                <table class="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Client</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersBody">
+                        <tr id="row1">
+                            <td>Apex Industries</td>
+                            <td>E-Waste Pickup</td>
+                            <td><span class="status-badge">Pending</span></td>
+                            <td><button class="action-btn" onclick="processOrder('row1', 'Apex Industries')">Dispatch</button></td>
+                        </tr>
+                        <tr id="row2">
+                            <td>Constructo Group</td>
+                            <td>Dumpster Swap</td>
+                            <td><span class="status-badge">Pending</span></td>
+                            <td><button class="action-btn" onclick="processOrder('row2', 'Constructo Group')">Dispatch</button></td>
+                        </tr>
+                        <tr id="row3">
+                            <td>Emerald Hills</td>
+                            <td>Bulk Pickup</td>
+                            <td><span class="status-badge">Pending</span></td>
+                            <td><button class="action-btn" onclick="processOrder('row3', 'Emerald Hills')">Dispatch</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         <!-- Material Sorted Split Chart -->
