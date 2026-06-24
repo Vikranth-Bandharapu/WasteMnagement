@@ -453,10 +453,12 @@ nav a:hover { opacity: 1; transform: translateY(-2px); }
     // Hamburger
     const hamburger = document.getElementById("hamburger");
     const menu = document.getElementById("mobileMenu");
-    hamburger.onclick = () => {
-        hamburger.classList.toggle("active");
-        menu.classList.toggle("active");
-    };
+    if (hamburger && menu) {
+        hamburger.onclick = () => {
+            hamburger.classList.toggle("active");
+            menu.classList.toggle("active");
+        };
+    }
 
     // Form validation
     document.getElementById("loginForm").addEventListener("submit", function(e) {
@@ -485,10 +487,7 @@ nav a:hover { opacity: 1; transform: translateY(-2px); }
             document.getElementById("roleError").style.display = "block";
             valid = false;
         }
-        if (!document.getElementById("remember").checked) {
-            document.getElementById("rememberError").style.display = "block";
-            valid = false;
-        }
+
 
         if (valid) {
             localStorage.setItem('ecoUserEmail', email);

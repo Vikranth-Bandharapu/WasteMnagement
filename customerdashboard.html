@@ -225,7 +225,7 @@ body {
 <body>
 
 <header class="header">
-    <a href="index.html" class="logo"><i class="fas fa-recycle"></i> EcoWaste</a>
+    <a href="index.html" class="logo"><img src="Assests/logo.webp" alt="Stackly Logo" class="logo-img"></a>
     <div class="user-info">
         <span class="user-email" id="emailDisplay">Loading User...</span>
         <button class="logout-btn" id="logoutBtn">Logout</button>
@@ -245,7 +245,7 @@ body {
             <h3>Next Trash Collection</h3>
             <div class="card-val" style="font-size: 1.5rem; margin-top: 0.25rem;">Tomorrow, June 23</div>
             <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.25rem;">Green bin curbside placement by 6:00 AM</p>
-            <a href="#" class="card-btn card-btn-outline" onclick="triggerToast('Remind Notification: Set for tomorrow!')">Set Reminder</a>
+            <a href="404.html" class="card-btn card-btn-outline" onclick="triggerToast('Remind Notification: Set for tomorrow!')">Set Reminder</a>
         </div>
         
         <div class="card">
@@ -253,7 +253,7 @@ body {
             <h3>Outstanding Bill</h3>
             <div class="card-val">$42.50</div>
             <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.25rem;">Billing cycle: June 1 - June 30</p>
-            <a href="#" class="card-btn" onclick="triggerToast('Success: Outstanding bill of $42.50 has been settled.')">Pay Bill Now</a>
+            <a href="404.html" class="card-btn" onclick="triggerToast('Success: Outstanding bill of $42.50 has been settled.')">Pay Bill Now</a>
         </div>
 
         <div class="card">
@@ -261,7 +261,7 @@ body {
             <h3>Ecological Impact</h3>
             <div class="card-val">342 lbs</div>
             <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.25rem;">Equivalent to 4.8 trees conserved!</p>
-            <a href="sustainability.html" class="card-btn card-btn-outline">View Sustainability Metrics</a>
+            <a href="404.html" class="card-btn card-btn-outline">View Sustainability Metrics</a>
         </div>
     </div>
 
@@ -336,12 +336,18 @@ body {
         window.location.href = 'index.html';
     });
 
-    // Form submit mockup
-    document.getElementById('requestForm').addEventListener('submit', (e) => {
-        e.preventDefault();
-        triggerToast('Request Submitted: Our operations staff has received your inquiry.');
-        document.getElementById('comments').value = '';
-    });
+   document.getElementById('requestForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const comments = document.getElementById('comments').value.trim();
+
+    if (comments === '') {
+        triggerToast('Please fill in all required fields.');
+        return;
+    }
+
+    window.location.href = '404.html';
+});
 
     // Toast triggers
     function triggerToast(text) {

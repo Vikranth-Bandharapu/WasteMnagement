@@ -1978,11 +1978,39 @@ textarea.form-control {
     .blog-layout {
         grid-template-columns: 2fr 1fr;
     }
+    
+    .header-light .nav-link {
+        color: rgba(255, 255, 255, 0.85);
+    }
+    
+    .header-light .nav-link:hover,
+    .header-light .nav-link.active {
+        color: var(--accent);
+    }
+    
+    .header-light .login-nav-btn {
+        color: rgba(255, 255, 255, 0.85) !important;
+    }
+    
+    .header-light .login-nav-btn:hover {
+        color: var(--accent) !important;
+    }
 }
-.logo-img{
-    height:50px; /* Adjust as needed */
-    width:auto;
-    display:block;
+.logo-img {
+    height: 40px; /* Adjust as needed */
+    width: auto;
+    display: block;
+    transition: filter 0.3s ease;
+}
+
+.header.scrolled .logo-img {
+    filter: invert(1) brightness(0.2);
+}
+
+@media (max-width: 1023px) {
+    .header .logo-img {
+        filter: invert(1) brightness(0.2) !important;
+    }
 }
 
 /* Mobile-only adjustments for centering footer elements */
@@ -2018,4 +2046,10 @@ textarea.form-control {
         left: 50%;
         transform: translateX(-50%);
     }
+}
+.header-logo {
+    height: 50px;
+    width: auto;
+    display: block;
+    object-fit: contain;
 }
