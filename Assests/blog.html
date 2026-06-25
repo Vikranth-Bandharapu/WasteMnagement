@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Stay updated with the latest circular economy news, household recycling tips, electronic waste guidelines, and corporate sustainability announcements from EcoWaste Solutions.">
+    <title>News & Blog | EcoWaste Solutions</title>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header header-light">
+        <div class="container header-container">
+            <a href="index.html" class="logo logo-text-light" id="headerLogo">
+                <img src="Assests/logo.webp" alt="Stackly Logo" class="logo-img">
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link  " >About-Us</a>
+              <a href="blog.html" class="nav-link active">Blog</a>
+                     <a href="sustainability.html" class="nav-link  ">Sustainability</a>
+
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="header-cta">
+                <a href="login.html" class="nav-link login-nav-btn" style="color: inherit; padding: 0.5rem 0;">Log In</a>
+                <a href="signup.html" class="btn btn-accent btn-sm">Sign Up</a>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle Mobile Menu" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Slide-Out -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link  " >About-Us</a>
+              <a href="blog.html" class="nav-link active ">Blog</a>
+                      <a href="sustainability.html" class="nav-link  ">Sustainability</a>
+
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="login.html" class="nav-link">Log In</a>
+        <a href="signup.html" class="nav-link">Sign Up</a>
+    </div>
+
+    <!-- Page Banner Section -->
+    <section class="page-banner">
+        <div class="page-banner-overlay"></div>
+        <img src="Assests/about page.webp" alt="Fresh green forest representing blog nature values" class="page-banner-bg">
+        <div class="container">
+            <h1>Eco Insights & News</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>News & Blog</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Layout Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="blog-layout">
+                
+                <!-- Left: Blog Posts -->
+                <div style="display: flex; flex-direction: column; gap: 3rem;">
+                    
+                    <!-- Featured Post -->
+                    <div class="glass-card featured-post-card reveal reveal-fade-up" id="post1">
+                        <div class="featured-post-img-wrapper">
+                            <img src="Assests/service.webp" alt="Plastics recycling close up" class="featured-post-img">
+                            <span class="blog-badge" style="top: 1.5rem; left: 1.5rem;">Recycling Tips</span>
+                        </div>
+                        <div class="featured-post-info">
+                            <div class="blog-meta">
+                                <span><i class="far fa-calendar-alt"></i> June 18, 2026</span>
+                                <span><i class="far fa-user"></i> Sorting Team</span>
+                            </div>
+                            <h2>Demystifying Plastics: What Can You Actually Recycle?</h2>
+                            <p>An easy, item-by-item breakdown of plastics numbers 1 through 7, explaining which belong in single-stream residential bins and which require specialized local dropoff drop sites.</p>
+                            <p style="margin-bottom: 2rem;">PET (No. 1) and HDPE (No. 2) make up over 80% of consumer packaging. They melt easily and retain structure in secondary manufacturing. However, polystyrene (No. 6) and thin films (No. 4) often jam sorting gears...</p>
+                            <a href="404.html" class="btn btn-primary btn-sm" style="align-self: flex-start;">Read Full Article</a>
+                        </div>
+                    </div>
+
+                    <!-- Blog Posts Grid -->
+                    <div class="grid grid-2">
+                        
+                        <!-- Post 2 -->
+                        <div class="glass-card blog-card reveal reveal-fade-up" id="post2">
+                            <div class="blog-img-wrapper">
+                                <img src="Assests/image 1.webp" alt="Plant sprouting from soil" class="blog-img">
+                                <span class="blog-badge">Sustainability</span>
+                            </div>
+                            <div class="blog-info">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar-alt"></i> June 12, 2026</span>
+                                    <span><i class="far fa-user"></i> Eco Consultant</span>
+                                </div>
+                                <h3>How Commercial Composting Can Trim Business Expenses</h3>
+                                <p>Learn how commercial organic waste separation trims trash tonnage, skipping heavy city disposal fees.</p>
+                                <a href="404.html" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Post 3 -->
+                        <div class="glass-card blog-card reveal reveal-fade-up" id="post3" style="transition-delay: 0.05s;">
+                            <div class="blog-img-wrapper">
+                                <img src="Assests/e waste.webp" alt="Hardware circuitry" class="blog-img">
+                                <span class="blog-badge">E-Waste</span>
+                            </div>
+                            <div class="blog-info">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar-alt"></i> May 29, 2026</span>
+                                    <span><i class="far fa-user"></i> Tech Auditor</span>
+                                </div>
+                                <h3>The Toxic Impact of Improper E-Waste Disposal</h3>
+                                <p>Why throwing old phones, cables, and laptops in standard garbage bins leaks dangerous heavy metals.</p>
+                                <a href="404.html" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Post 4 -->
+                        <div class="glass-card blog-card reveal reveal-fade-up" id="post4">
+                            <div class="blog-img-wrapper">
+                                <img src="Assests/sustainbility.webp" alt="Industrial sorting facility" class="blog-img">
+                                <span class="blog-badge">Company News</span>
+                            </div>
+                            <div class="blog-info">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar-alt"></i> May 15, 2026</span>
+                                    <span><i class="far fa-user"></i> PR Manager</span>
+                                </div>
+                                <h3>EcoWaste Upgrades Sorting Center with Robotics</h3>
+                                <p>Finalized optical robot installation at our Eco-City processing facility, boosting plastic recovery by 45%.</p>
+                                <a href="404.html" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Post 5 -->
+                        <div class="glass-card blog-card reveal reveal-fade-up" id="post5" style="transition-delay: 0.05s;">
+                            <div class="blog-img-wrapper">
+                                <img src="Assests/recyling.webp" alt="Recycling bins" class="blog-img">
+                                <span class="blog-badge">Recycling Tips</span>
+                            </div>
+                            <div class="blog-info">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar-alt"></i> April 22, 2026</span>
+                                    <span><i class="far fa-user"></i> Household Eco</span>
+                                </div>
+                                <h3>5 Ways to Achieve a Zero-Waste Household</h3>
+                                <p>Simple tips to phase out single-use plastics, reuse glass jars for dry storage, and buy in compostable bags.</p>
+                                <a href="404.html" class="blog-link">Read Article <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right: Sidebar Widgets -->
+                <div class="blog-sidebar">
+                    
+                    <!-- Search Widget -->
+                    <div class="sidebar-widget reveal reveal-fade-up">
+                        <h4 class="sidebar-title">Search Blog</h4>
+                        <form class="search-form" onsubmit="event.preventDefault();">
+                            <input type="text" placeholder="Search articles..." aria-label="Search articles">
+                            <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget reveal reveal-fade-up">
+                        <h4 class="sidebar-title">Categories</h4>
+                        <ul class="sidebar-categories">
+                            <li><a href="404.html">Recycling Tips <span>12</span></a></li>
+                            <li><a href="404.html">Sustainability <span>8</span></a></li>
+                            <li><a href="404.html">E-Waste <span>4</span></a></li>
+                            <li><a href="404.html">Company News <span>6</span></a></li>
+                            <li><a href="404.html">Environmental Policy <span>3</span></a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Newsletter Sidebar Widget -->
+                    <div class="sidebar-widget reveal reveal-fade-up" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%); color: var(--bg-white);">
+                        <h4 class="sidebar-title" style="color: var(--bg-white); border-bottom-color: rgba(255, 255, 255, 0.1);">Newsletter</h4>
+                        <p style="font-size: 0.875rem; margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.8);">Get bi-weekly recycling directives, local collection updates, and sustainability tips in your inbox.</p>
+                        <form class="newsletter-form" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                            <input type="email" placeholder="Your email address" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-md); padding: 0.75rem 1rem; color: white;" required>
+                            <button type="submit" class="btn btn-accent btn-sm" style="border-radius: var(--radius-md); width: 100%;">Subscribe</button>
+                        </form>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <a href="index.html" class="logo logo-text-light" id="headerLogo">
+                        <img src="Assests/logo.webp" alt="Stackly Logo" class="logo-img">
+                    </a>
+                    <p>Providing premium, certified waste disposal, hazardous handling, and circular economy services. We turn waste into value.</p>
+                    <div class="social-links">
+                        <a href="404.html" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="404.html" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="404.html" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="404.html" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+               <div>
+                    <h4 class="footer-title">EcoWaste</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">News & Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html"> Services</a></li>
+                        <li><a href="sustainability.html">Sustainbility</a></li>
+                        <li><a href="404.html">Industrial Disposal</a></li>
+                        <li><a href="404.html">Recycling Programs</a></li>
+                     
+                    </ul>
+                </div>
+                
+                <!-- Contact info -->
+                <div>
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>100 Green Tech Parkway, Suite 400, Eco City, EC 94002</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span><a href="404.html">+1 (800) 555-3269</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="404.html">solutions@ecowaste.com</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" aria-label="Back to Top"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script>
+        const header = document.querySelector('.header');
+        const logo = document.getElementById('headerLogo');
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('header-light');
+                logo.classList.remove('logo-text-light');
+            } else {
+                header.classList.add('header-light');
+                logo.classList.add('logo-text-light');
+            }
+        });
+    </script>
+</body>
+</html>

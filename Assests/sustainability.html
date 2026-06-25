@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Read about EcoWaste Solutions' green initiatives, carbon footprint reductions, clean electric fleets, solar operations, community cleanups, and ESG metrics.">
+    <title>Sustainability | EcoWaste Solutions</title>
+    <!-- CSS Links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header class="header header-light">
+        <div class="container header-container">
+            <a href="index.html" class="logo logo-text-light" id="headerLogo">
+                <img src="Assests/logo.webp" alt="Stackly Logo" class="logo-img">
+            </a>
+            
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="about.html" class="nav-link" >About-Us</a>
+              <a href="blog.html" class="nav-link ">Blog</a>
+              <a href="sustainability.html" class="nav-link  active">Sustainability</a>
+                <a href="services.html" class="nav-link">Services</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </nav>
+            
+            <div class="header-cta">
+                <a href="login.html" class="nav-link login-nav-btn" style="color: inherit; padding: 0.5rem 0;">Log In</a>
+                <a href="signup.html" class="btn btn-accent btn-sm">Sign Up</a>
+            </div>
+            
+            <button class="mobile-menu-btn" aria-label="Toggle Mobile Menu" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Slide-Out -->
+    <div class="mobile-nav" id="mobileNav">
+        <a href="index.html" class="nav-link">Home</a>
+         <a href="about.html" class="nav-link" >About-Us</a>
+              <a href="blog.html" class="nav-link ">Blog</a>
+              <a href="sustainability.html" class="nav-link active ">Sustainability</a>
+        <a href="services.html" class="nav-link">Services</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+        <a href="login.html" class="nav-link">Log In</a>
+        <a href="signup.html" class="nav-link">Sign Up</a>
+    </div>
+
+    <!-- Page Banner Section -->
+    <section class="page-banner">
+        <div class="page-banner-overlay"></div>
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1950&q=80" alt="Mountain forests representing sustainability" class="page-banner-bg">
+        <div class="container">
+            <h1>Our Sustainability Commitment</h1>
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i> <span>Sustainability</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Environmental Impact Metrics Dashboard -->
+    <section class="section-padding" style="background-color: var(--bg-white);">
+        <div class="container">
+            <div class="section-header reveal reveal-fade-up">
+                <h2>Eco Impact Dashboard</h2>
+                <p>We actively measure and publish our core ESG metrics, tracking progress toward our carbon-neutral target year.</p>
+            </div>
+            
+            <div class="grid metrics-grid">
+                
+                <!-- Metric 1: Landfill Diversion -->
+                <div class="glass-card metric-card reveal reveal-fade-up">
+                    <div class="metric-chart-box">
+                        <svg class="metric-circle-svg" width="120" height="120">
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="10"></circle>
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#095a3b" stroke-width="10" stroke-dasharray="314" stroke-dashoffset="37.6"></circle> <!-- 88% -->
+                        </svg>
+                        <span class="metric-percentage">88%</span>
+                    </div>
+                    <h3>Landfill Diversion</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.5rem;">Target: 95% by 2028. Currently diverting paper, metals, glass, organics, and e-waste.</p>
+                </div>
+
+                <!-- Metric 2: Fleet Electrification -->
+                <div class="glass-card metric-card reveal reveal-fade-up" style="transition-delay: 0.05s;">
+                    <div class="metric-chart-box">
+                        <svg class="metric-circle-svg" width="120" height="120">
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="10"></circle>
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#10b981" stroke-width="10" stroke-dasharray="314" stroke-dashoffset="144.4"></circle> <!-- 54% -->
+                        </svg>
+                        <span class="metric-percentage">54%</span>
+                    </div>
+                    <h3>Fleet Electrification</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.5rem;">Target: 100% by 2032. Active transition from diesel to electric and bio-CNG engines.</p>
+                </div>
+
+                <!-- Metric 3: Clean Energy sorting -->
+                <div class="glass-card metric-card reveal reveal-fade-up" style="transition-delay: 0.1s;">
+                    <div class="metric-chart-box">
+                        <svg class="metric-circle-svg" width="120" height="120">
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="10"></circle>
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#095a3b" stroke-width="10" stroke-dasharray="314" stroke-dashoffset="0"></circle> <!-- 100% -->
+                        </svg>
+                        <span class="metric-percentage">100%</span>
+                    </div>
+                    <h3>Solar sorting facilities</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.5rem;">Target: Achieved. 100% of municipal sorting and robotic processing run on solar arrays.</p>
+                </div>
+
+                <!-- Metric 4: Carbon Offsets -->
+                <div class="glass-card metric-card reveal reveal-fade-up" style="transition-delay: 0.15s;">
+                    <div class="metric-chart-box">
+                        <svg class="metric-circle-svg" width="120" height="120">
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#e2e8f0" stroke-width="10"></circle>
+                            <circle cx="60" cy="60" r="50" fill="none" stroke="#10b981" stroke-width="10" stroke-dasharray="314" stroke-dashoffset="62.8"></circle> <!-- 80% -->
+                        </svg>
+                        <span class="metric-percentage">80%</span>
+                    </div>
+                    <h3>Carbon Neutrality</h3>
+                    <p style="font-size: 0.875rem; color: var(--text-muted); margin-top: 0.5rem;">Target: 100% by 2030. Currently offsetting remaining route carbon via reforestation.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Green Initiatives Section -->
+    <section class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="section-header reveal reveal-fade-up">
+                <h2>Our Green Initiatives</h2>
+                <p>Investing in structural sustainability to minimize operational footprints and protect regional biodiversity.</p>
+            </div>
+            
+            <div class="grid grid-3">
+                <div class="glass-card reveal reveal-fade-up">
+                    <div class="service-icon"><i class="fas fa-truck-droplet"></i></div>
+                    <h3 style="margin-bottom: 0.75rem;">Electric Refuse Fleet</h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">We are actively phasing out diesel combustion. More than half of our commercial vehicles operate on clean electric drivetrains or compressed natural gas derived from bio-decay capture, reducing noise and carbon on collection streets.</p>
+                </div>
+                
+                <div class="glass-card reveal reveal-fade-up" style="transition-delay: 0.05s;">
+                    <div class="service-icon"><i class="fas fa-solar-panel"></i></div>
+                    <h3 style="margin-bottom: 0.75rem;">Solar Sorting Centers</h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">Our automated materials separation plants run entirely on solar energy harvested from massive rooftop solar arrays. Excess energy generated is exported back to the clean public energy grid to support neighboring houses.</p>
+                </div>
+                
+                <div class="glass-card reveal reveal-fade-up" style="transition-delay: 0.1s;">
+                    <div class="service-icon"><i class="fas fa-wheat-awn"></i></div>
+                    <h3 style="margin-bottom: 0.75rem;">Regional Composting Farms</h3>
+                    <p style="font-size: 0.9375rem; color: var(--text-muted);">We compost organic food scraps and garden waste in large oxygenated aerators. The result is nutrient-rich clean agricultural fertilizer that is sold to regional organic farmers, closing the nutrient loop.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carbon Footprint reduction programs -->
+    <section class="section-padding" style="background-color: var(--bg-white);">
+        <div class="container">
+            <div class="grid grid-2" style="align-items: center;">
+                <div class="reveal reveal-slide-right">
+                    <h2 style="font-size: 2.25rem; margin-bottom: 1.5rem; color: var(--primary);">Carbon Footprint Reduction Programs</h2>
+                    <p style="margin-bottom: 1.25rem;">Through our proprietary AI routing algorithm, **RouteGreen**, we optimize collection pathways daily based on container fullness sensor data. This saves over 25% of operational fuel and decreases municipal traffic congestion.</p>
+                    <p style="margin-bottom: 1.25rem;">At our landfill management locations, we operate advanced methane capture piping. Instead of venting harmful landfill gases into the atmosphere, we capture, scrub, and convert the fuel to feed localized generators that supply municipal energy.</p>
+                    <p>Finally, we invest 2% of annual corporate profits in verified carbon offset programs, supporting reforestation projects in endangered rainforest preserves worldwide.</p>
+                </div>
+                <div class="reveal reveal-slide-left">
+                    <img src="https://images.unsplash.com/photo-1508962914676-134849a727f0?auto=format&fit=crop&w=800&q=80" alt="Green grass and solar panels" style="border-radius: var(--radius-lg); box-shadow: var(--glass-shadow-large); width: 100%; height: 380px; object-fit: cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Engagement Activities -->
+    <section class="section-padding" style="background-color: var(--bg-light);">
+        <div class="container">
+            <div class="section-header reveal reveal-fade-up">
+                <h2>Community & Outreach</h2>
+                <p>Sustainability thrives when communities coordinate. We sponsor programs to build regional awareness.</p>
+            </div>
+            
+            <div class="grid grid-2">
+                <div class="glass-card reveal reveal-slide-right" style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                    <div class="service-icon" style="flex-shrink: 0;"><i class="fas fa-graduation-cap"></i></div>
+                    <div>
+                        <h3 style="margin-bottom: 0.5rem;">Eco-Educators Program</h3>
+                        <p style="font-size: 0.9375rem; color: var(--text-muted);">Our sustainability directors visit local schools, providing interactive webinars, recycling workshops, and science demonstrations on polymer types and circular manufacturing.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card reveal reveal-slide-left" style="display: flex; gap: 1.5rem; align-items: flex-start;">
+                    <div class="service-icon" style="flex-shrink: 0;"><i class="fas fa-trash-can-arrow-up"></i></div>
+                    <div>
+                        <h3 style="margin-bottom: 0.5rem;">Community Cleanup Sponsorships</h3>
+                        <p style="font-size: 0.9375rem; color: var(--text-muted);">Sponsoring monthly regional cleanups of riverbeds, state parks, and public streets. We provide safety gear, trash roll-off bins, food, and prizes to incentivize local volunteers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Achievements/Awards -->
+    <section class="section-padding" style="background-color: var(--primary); color: var(--bg-white);">
+        <div class="container">
+            <div class="section-header reveal reveal-fade-up">
+                <h2 class="text-white">Recent Achievements</h2>
+                <p style="color: rgba(255, 255, 255, 0.75);">Industry-standard recognitions verifying our ecological excellence.</p>
+            </div>
+            
+            <div class="grid grid-3" style="text-align: center;">
+                <div class="reveal reveal-fade-in" style="background: rgba(255, 255, 255, 0.08); padding: 2rem; border-radius: var(--radius-md); border: 1px solid rgba(255, 255, 255, 0.1);">
+                    <i class="fas fa-trophy text-accent" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 class="text-white" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Zero Waste Innovator Award</h3>
+                    <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">Awarded in 2024 by the Environmental Protection Association for robotic optical sorting implementation.</p>
+                </div>
+                
+                <div class="reveal reveal-fade-in" style="background: rgba(255, 255, 255, 0.08); padding: 2rem; border-radius: var(--radius-md); border: 1px solid rgba(255, 255, 255, 0.1); transition-delay: 0.05s;">
+                    <i class="fas fa-certificate text-accent" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 class="text-white" style="font-size: 1.25rem; margin-bottom: 0.5rem;">ESG Gold Certification</h3>
+                    <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">Earned in 2025 for exceptional ESG transparency, community outreach, and fleet transition metrics.</p>
+                </div>
+                
+                <div class="reveal reveal-fade-in" style="background: rgba(255, 255, 255, 0.08); padding: 2rem; border-radius: var(--radius-md); border: 1px solid rgba(255, 255, 255, 0.1); transition-delay: 0.1s;">
+                    <i class="fas fa-truck-arrow-right text-accent" style="font-size: 2.5rem; margin-bottom: 1rem;"></i>
+                    <h3 class="text-white" style="font-size: 1.25rem; margin-bottom: 0.5rem;">Clean Fleet Pioneer</h3>
+                    <p style="font-size: 0.875rem; color: rgba(255, 255, 255, 0.7);">Presented in 2025 by the Clean Cities Coalition for transitioning over half of heavy fleet vehicles to electric and CNG.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top-grid">
+                <!-- Brand Column -->
+                <div class="footer-brand">
+                    <a href="index.html" class="logo logo-text-light" id="headerLogo">
+                        <img src="Assests/logo.webp" alt="Stackly Logo" class="logo-img">
+                    </a>
+                    <p>Providing premium, certified waste disposal, hazardous handling, and circular economy services. We turn waste into value.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="footer-title">EcoWaste</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">News & Blog</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Services Links -->
+                <div>
+                    <h4 class="footer-title">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html"> Services</a></li>
+                        <li><a href="sustainability.html">Sustainbility</a></li>
+                        <li><a href="404.html">Industrial Disposal</a></li>
+                        <li><a href="404.html">Recycling Programs</a></li>
+                     
+                    </ul>
+                </div>
+                <!-- Contact info -->
+                <div>
+                    <h4 class="footer-title">Contact Info</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>100 Green Tech Parkway, Suite 400, Eco City, EC 94002</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone-alt"></i>
+                            <span><a href="404.html">+1 (800) 555-3269</a></span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span><a href="404.html">solutions@ecowaste.com</a></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Stackly All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="404.html">Privacy Policy</a>
+                    <a href="404.html">Terms of Service</a>
+                    <a href="404.html">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" class="back-to-top" aria-label="Back to Top"><i class="fas fa-chevron-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="main.js"></script>
+    <script>
+        const header = document.querySelector('.header');
+        const logo = document.getElementById('headerLogo');
+        const mobileBtn = document.getElementById('mobileMenuBtn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.remove('header-light');
+                logo.classList.remove('logo-text-light');
+            } else {
+                header.classList.add('header-light');
+                logo.classList.add('logo-text-light');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Portal | EcoWaste Solutions</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+body {
+    background-color: #f8fafc;
+    color: #1e293b;
+    line-height: 1.6;
+    padding-top: 80px; /* Offset for fixed header */
+}
+.header {
+    background: #095a3b;
+    color: white;
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #10b981;
+    text-decoration: none;
+}
+.logo-img {
+    height: 40px;
+    width: auto;
+    display: block;
+}
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+.user-email {
+    font-weight: 600;
+    font-size: 0.875rem;
+    background: rgba(255,255,255,0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+}
+.logout-btn {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.logout-btn:hover {
+    background: #ff4a4a;
+    border-color: #ff4a4a;
+}
+
+/* Dashboard Sidebar Layout */
+.dashboard-layout {
+    display: flex;
+    min-height: calc(100vh - 80px);
+}
+.sidebar {
+    width: 260px;
+    background: #ffffff;
+    border-right: 1px solid #e2e8f0;
+    padding: 2rem 1.5rem;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    bottom: 0;
+    z-index: 90;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+}
+.sidebar-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.8rem 1.2rem;
+    color: #475569;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+.sidebar-link i {
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+    color: #64748b;
+    transition: color 0.3s;
+}
+.sidebar-link:hover, .sidebar-link.active {
+    background: #e6f4ea;
+    color: #095a3b;
+}
+.sidebar-link:hover i, .sidebar-link.active i {
+    color: #10b981;
+}
+.main-content {
+    flex: 1;
+    margin-left: 260px;
+    padding: 2.5rem;
+    background: #f8fafc;
+    min-height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.welcome-bar {
+    margin-bottom: 2rem;
+}
+.welcome-bar h1 {
+    font-size: 2rem;
+    color: #0f172a;
+}
+
+/* Tab contents styling */
+.tab-content {
+    display: none;
+}
+.tab-content.active {
+    display: block;
+}
+
+/* Live Announcement Feed */
+.announcements-container {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+.announcements-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 1rem;
+}
+.announcements-title i {
+    color: #10b981;
+}
+.announcement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.announcement-item {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 12px;
+    background: #f8fafc;
+    border-left: 4px solid #10b981;
+}
+.announcement-item.important {
+    border-left-color: #f59e0b;
+    background: #fffbeb;
+}
+.announcement-icon-alert {
+    font-size: 1.25rem;
+    color: #10b981;
+}
+.announcement-item.important .announcement-icon-alert {
+    color: #f59e0b;
+}
+.announcement-content h5 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.15rem;
+}
+.announcement-content p {
+    font-size: 0.8125rem;
+    color: #475569;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+}
+.card {
+    background: white;
+    padding: 1.5rem 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    display: flex;
+    flex-direction: column;
+}
+.card-icon {
+    font-size: 2rem;
+    color: #10b981;
+    margin-bottom: 1rem;
+}
+.card h3 {
+    font-size: 1rem;
+    color: #64748b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.5rem;
+}
+.card-val {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin-bottom: auto;
+}
+.card-btn {
+    margin-top: 1.25rem;
+    background: #095a3b;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: all 0.3s;
+}
+.card-btn:hover {
+    background: #10b981;
+}
+.card-btn-outline {
+    background: transparent;
+    border: 1.5px solid #095a3b;
+    color: #095a3b;
+}
+.card-btn-outline:hover {
+    background: #095a3b;
+    color: white;
+}
+
+/* Recycling Achievements Section */
+.achievements-section {
+    margin-bottom: 2.5rem;
+}
+.achievements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+.achievement-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.achievement-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #10b981;
+}
+.achievement-card.completed::before {
+    background: #095a3b;
+}
+.achievement-icon {
+    font-size: 2rem;
+    color: #10b981;
+    background: #f0fdf4;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.achievement-info {
+    flex: 1;
+}
+.achievement-info h4 {
+    font-size: 0.95rem;
+    color: #0f172a;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+.achievement-info p {
+    font-size: 0.8125rem;
+    color: #64748b;
+    margin-bottom: 0.5rem;
+}
+.progress-container {
+    flex: 1;
+    background: #e2e8f0;
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-right: 0.75rem;
+}
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #10b981, #095a3b);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+.progress-text {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #095a3b;
+    white-space: nowrap;
+}
+
+.layout-columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+@media(min-width: 900px) {
+    .layout-columns {
+        grid-template-columns: 1.5fr 1fr;
+    }
+}
+.panel {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+.panel h2 {
+    font-size: 1.25rem;
+    color: #0f172a;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 0.75rem;
+}
+
+/* Invoices & Table */
+.invoices-panel {
+    grid-column: 1 / -1;
+}
+.table-responsive {
+    overflow-x: auto;
+    width: 100%;
+    margin-top: 1rem;
+}
+.invoice-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    text-align: left;
+}
+.invoice-table th {
+    padding: 0.75rem 1rem;
+    color: #64748b;
+    border-bottom: 2px solid #e2e8f0;
+    font-weight: 600;
+    background: #f8fafc;
+}
+.invoice-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    color: #334155;
+}
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.badge-paid {
+    background: #d1fae5;
+    color: #065f46;
+}
+.badge-pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+.action-btn {
+    background: #095a3b;
+    border: none;
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+.action-btn:hover {
+    background: #10b981;
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid #f1f5f9;
+}
+.schedule-item:last-child {
+    border-bottom: none;
+}
+.schedule-info h4 {
+    font-size: 1rem;
+    color: #0f172a;
+}
+.schedule-info p {
+    font-size: 0.8125rem;
+    color: #64748b;
+}
+.schedule-badge {
+    background: #d1fae5;
+    color: #065f46;
+    font-weight: 700;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 30px;
+    text-transform: uppercase;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-group label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+.form-control {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #f8fafc;
+}
+.form-control:focus {
+    border-color: #10b981;
+    background: white;
+}
+
+/* Centered Footer */
+.dashboard-footer {
+    text-align: center;
+    padding: 1.5rem;
+    color: #64748b;
+    font-size: 0.875rem;
+    border-top: 1px solid #e2e8f0;
+    background: #ffffff;
+    margin-top: 3rem;
+    width: 100%;
+}
+
+/* Toast style */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: #065f46;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    transform: translateY(150%);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 1000;
+}
+.toast.show {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    .header {
+        padding: 0.75rem 1.5rem;
+    }
+    .user-info {
+        gap: 0.75rem;
+    }
+    .user-email {
+        max-width: 140px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    .logout-btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Mobile Sidebar styles */
+    .dashboard-layout {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: static;
+        width: 100%;
+        height: auto;
+        padding: 0.5rem 1rem;
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
+        flex-direction: row;
+        overflow-x: auto;
+        white-space: nowrap;
+        gap: 0.5rem;
+        -webkit-overflow-scrolling: touch;
+    }
+    .sidebar-menu {
+        flex-direction: row;
+        gap: 0.5rem;
+        width: max-content;
+    }
+    .sidebar-link {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    .desktop-only-logout {
+        display: none !important;
+    }
+    .main-content {
+        margin-left: 0;
+        padding: 1.5rem 1rem;
+    }
+    .welcome-bar h1 {
+        font-size: 1.5rem;
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .card {
+        padding: 1.25rem 1.5rem;
+    }
+    .achievements-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+}
+@media (max-width: 480px) {
+    .logo-img {
+        height: 32px;
+    }
+    .user-email {
+        max-width: 100px;
+    }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+    <a href="index.html" class="logo"><img src="Assests/logo.webp" alt="Stackly Logo" class="logo-img"></a>
+    <div class="user-info">
+        <span class="user-email" id="emailDisplay">Loading User...</span>
+        <button class="logout-btn" id="logoutBtn">Logout</button>
+    </div>
+</header>
+
+<div class="dashboard-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+        <ul class="sidebar-menu">
+            <li>
+                <a href="#" class="sidebar-link active" onclick="navigateDashboard(event, 'overview')">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sidebar-link" onclick="navigateDashboard(event, 'pickups')">
+                    <i class="fas fa-truck"></i>
+                    <span>Pickups/Schedules</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sidebar-link" onclick="navigateDashboard(event, 'billing')">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <span>Billing & Invoices</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sidebar-link" onclick="navigateDashboard(event, 'achievements')">
+                    <i class="fas fa-trophy"></i>
+                    <span>Achievements</span>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="sidebar-link" onclick="navigateDashboard(event, 'settings')">
+                    <i class="fas fa-cog"></i>
+                    <span>Support & Settings</span>
+                </a>
+            </li>
+            <li class="desktop-only-logout" style="margin-top: auto;">
+                <a href="#" class="sidebar-link" id="sidebarLogoutBtn" style="color: #ef4444;">
+                    <i class="fas fa-sign-out-alt" style="color: #ef4444;"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Tab: Overview -->
+        <div id="tab-overview" class="tab-content active">
+            <div class="welcome-bar">
+                <h1>Welcome back to EcoWaste!</h1>
+                <p style="color: #64748b;">Manage your collections, track invoice billing details, and request container upgrades.</p>
+            </div>
+
+            <!-- Live Announcement Feed -->
+            <section class="announcements-container">
+                <div class="announcements-title">
+                    <i class="fas fa-bullhorn"></i>
+                    <span>Live Bulletins & Announcements</span>
+                </div>
+                <div class="announcement-list">
+                    <div class="announcement-item important">
+                        <div class="announcement-icon-alert"><i class="fas fa-exclamation-triangle"></i></div>
+                        <div class="announcement-content">
+                            <h5>Holiday Collection Schedule Update</h5>
+                            <p>Due to the upcoming national holiday, garbage collection on Tuesday, July 4th will be delayed by one day to Wednesday, July 5th.</p>
+                        </div>
+                    </div>
+                    <div class="announcement-item">
+                        <div class="announcement-icon-alert"><i class="fas fa-seedling"></i></div>
+                        <div class="announcement-content">
+                            <h5>Community E-Waste Drive</h5>
+                            <p>Join us this Saturday, July 1st, at the Central Park Parking Lot from 9 AM to 3 PM. Bring old electronics, batteries, and appliances for safe recycling!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Grid -->
+            <div class="dashboard-grid">
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-truck"></i></div>
+                    <h3>Next Trash Collection</h3>
+                    <div class="card-val" style="font-size: 1.5rem; margin-top: 0.25rem;">Tomorrow, June 23</div>
+                    <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.25rem;">Green bin curbside placement by 6:00 AM</p>
+                    <a href="404.html" class="card-btn card-btn-outline" onclick="triggerToast('Remind Notification: Set for tomorrow!')">Set Reminder</a>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3>Outstanding Bill</h3>
+                    <div class="card-val" id="outstandingBillValue">$42.50</div>
+                    <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.25rem;">Billing cycle: June 1 - June 30</p>
+                    <a href="#" class="card-btn" id="payBillNowBtn" onclick="payOutstandingBill(event)">Pay Bill Now</a>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon"><i class="fas fa-seedling"></i></div>
+                    <h3>Ecological Impact</h3>
+                    <div class="card-val">342 lbs</div>
+                    <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.25rem;">Equivalent to 4.8 trees conserved!</p>
+                    <a href="404.html" class="card-btn card-btn-outline">View Sustainability Metrics</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Pickups -->
+        <div id="tab-pickups" class="tab-content">
+            <div class="welcome-bar">
+                <h1>Pickups & Schedules</h1>
+                <p style="color: #64748b;">Review scheduled collections and submit dumpster swap requests.</p>
+            </div>
+            
+            <div style="margin-bottom: 2rem;">
+                <div class="card" style="flex-direction: row; gap: 1.5rem; align-items: center; padding: 1.5rem;">
+                    <div class="card-icon" style="margin-bottom:0;"><i class="fas fa-truck"></i></div>
+                    <div>
+                        <h3 style="margin-bottom:0.15rem;">Next Collection Window</h3>
+                        <div class="card-val" style="font-size: 1.5rem; margin-top:0.1rem;">Tomorrow, June 23</div>
+                        <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.15rem;">Please place your bin by the curb by 6:00 AM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="layout-columns">
+                <!-- Collection Schedules -->
+                <div class="panel">
+                    <h2>Upcoming Pickups Schedule</h2>
+                    
+                    <div class="schedule-item">
+                        <div class="schedule-info">
+                            <h4>Household Garbage Collection</h4>
+                            <p>Frequency: Weekly (Every Tuesday)</p>
+                        </div>
+                        <span class="schedule-badge">Active</span>
+                    </div>
+
+                    <div class="schedule-item">
+                        <div class="schedule-info">
+                            <h4>Single-Stream Recycling Collection</h4>
+                            <p>Frequency: Bi-Weekly (Next: Tuesday, June 30)</p>
+                        </div>
+                        <span class="schedule-badge">Active</span>
+                    </div>
+
+                    <div class="schedule-item">
+                        <div class="schedule-info">
+                            <h4>Organic Composting collection</h4>
+                            <p>Frequency: Bi-Weekly (Next: Tuesday, June 30)</p>
+                        </div>
+                        <span class="schedule-badge" style="background:#e0f2fe; color:#0369a1;">Optional bin</span>
+                    </div>
+                </div>
+
+                <!-- Request Swap Form -->
+                <div class="panel">
+                    <h2>Request Dumpster Swap / Extra Pickup</h2>
+                    <form id="requestForm">
+                        <div class="form-group">
+                            <label for="reqType">Request Action</label>
+                            <select id="reqType" class="form-control">
+                                <option value="missed">Report Missed Pickup</option>
+                                <option value="swap">Upgrade Trash Bin Size</option>
+                                <option value="extra">Request Bulk Waste Removal</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="comments">Description & Details</label>
+                            <textarea id="comments" class="form-control" style="min-height: 80px;" placeholder="Provide dates, sizes, or comments..."></textarea>
+                        </div>
+
+                        <button type="submit" class="card-btn" style="width: 100%; border: none;">Submit Request</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Billing -->
+        <div id="tab-billing" class="tab-content">
+            <div class="welcome-bar">
+                <h1>Billing & Invoices</h1>
+                <p style="color: #64748b;">Manage invoices and view statements.</p>
+            </div>
+            
+            <div style="margin-bottom: 2rem;">
+                <div class="card" style="flex-direction: row; gap: 1.5rem; align-items: center; padding: 1.5rem;">
+                    <div class="card-icon" style="margin-bottom:0;"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <div>
+                        <h3 style="margin-bottom:0.15rem;">Outstanding Balance</h3>
+                        <div class="card-val" id="tabOutstandingBillValue" style="font-size: 1.5rem; margin-top:0.1rem;">$42.50</div>
+                        <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.15rem;">Billing cycle: June 1 - June 30</p>
+                    </div>
+                    <a href="#" class="card-btn" id="tabPayBillNowBtn" style="margin-top:0; margin-left:auto;" onclick="payOutstandingBill(event)">Pay Outstanding Bill</a>
+                </div>
+            </div>
+
+            <!-- Invoices Table Section -->
+            <div class="panel invoices-panel">
+                <h2>Recent Invoices & Transactions</h2>
+                <div class="table-responsive">
+                    <table class="invoice-table">
+                        <thead>
+                            <tr>
+                                <th>Invoice ID</th>
+                                <th>Billing Period</th>
+                                <th>Due Date</th>
+                                <th>Amount</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr id="invRow4">
+                                <td>#INV-2026-004</td>
+                                <td>Jun 01 - Jun 30, 2026</td>
+                                <td>Jun 30, 2026</td>
+                                <td>$42.50</td>
+                                <td><span class="badge badge-pending" id="invStatus4">Pending</span></td>
+                                <td><button class="action-btn" id="payInvBtn4" onclick="payInvoice('#INV-2026-004', 42.50, 'invStatus4', 'payInvBtn4')">Pay Invoice</button></td>
+                            </tr>
+                            <tr>
+                                <td>#INV-2026-003</td>
+                                <td>May 01 - May 31, 2026</td>
+                                <td>May 31, 2026</td>
+                                <td>$42.50</td>
+                                <td><span class="badge badge-paid">Paid</span></td>
+                                <td><a href="404.html" class="action-btn" style="background:#475569; text-decoration:none; display:inline-block; text-align:center;">Receipt</a></td>
+                            </tr>
+                            <tr>
+                                <td>#INV-2026-002</td>
+                                <td>Apr 01 - Apr 30, 2026</td>
+                                <td>Apr 30, 2026</td>
+                                <td>$55.00</td>
+                                <td><span class="badge badge-paid">Paid</span></td>
+                                <td><a href="404.html" class="action-btn" style="background:#475569; text-decoration:none; display:inline-block; text-align:center;">Receipt</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Achievements -->
+        <div id="tab-achievements" class="tab-content">
+            <div class="welcome-bar">
+                <h1>Ecological Achievements</h1>
+                <p style="color: #64748b;">Track your contribution to carbon and waste diversion targets.</p>
+            </div>
+            
+            <div style="margin-bottom: 2rem;">
+                <div class="card" style="flex-direction: row; gap: 1.5rem; align-items: center; padding: 1.5rem;">
+                    <div class="card-icon" style="margin-bottom:0;"><i class="fas fa-seedling"></i></div>
+                    <div>
+                        <h3 style="margin-bottom:0.15rem;">Lbs Diverted From Landfill</h3>
+                        <div class="card-val" style="font-size: 1.5rem; margin-top:0.1rem;">342 lbs</div>
+                        <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.15rem;">Equivalent to 4.8 trees conserved!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recycling Achievements Grid -->
+            <section class="achievements-section">
+                <h2>Recycling Achievements & Milestones</h2>
+                <div class="achievements-grid" style="margin-top: 1rem;">
+                    <div class="achievement-card">
+                        <div class="achievement-icon"><i class="fas fa-glass-water"></i></div>
+                        <div class="achievement-info">
+                            <h4>Plastic Pioneer</h4>
+                            <p>Recycle 100 lbs of plastic container waste.</p>
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.25rem;">
+                                <div class="progress-container">
+                                    <div class="progress-fill" style="width: 75%;"></div>
+                                </div>
+                                <span class="progress-text">75%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card completed">
+                        <div class="achievement-icon" style="background: #e6f4ea; color: #095a3b;"><i class="fas fa-book"></i></div>
+                        <div class="achievement-info">
+                            <h4>Paper Saver</h4>
+                            <p>Recycle 200 lbs of paper & cardboard product waste.</p>
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.25rem;">
+                                <div class="progress-container">
+                                    <div class="progress-fill" style="width: 100%; background: #095a3b;"></div>
+                                </div>
+                                <span class="progress-text" style="color: #095a3b;">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card">
+                        <div class="achievement-icon"><i class="fas fa-battery-three-quarters"></i></div>
+                        <div class="achievement-info">
+                            <h4>Eco Warrior</h4>
+                            <p>Safely dispose of 15 hazardous e-waste items.</p>
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 0.25rem;">
+                                <div class="progress-container">
+                                    <div class="progress-fill" style="width: 30%;"></div>
+                                </div>
+                                <span class="progress-text">30%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Tab: Settings -->
+        <div id="tab-settings" class="tab-content">
+            <div class="welcome-bar">
+                <h1>Settings & Support</h1>
+                <p style="color: #64748b;">Manage preferences and request assistance.</p>
+            </div>
+            
+            <div class="layout-columns" style="grid-template-columns: 1fr;">
+                <div class="panel">
+                    <h2>Account Preferences & Support</h2>
+                    <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1rem;">
+                        <div>
+                            <h3 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 0.5rem;"><i class="fas fa-user-cog" style="color:#10b981;"></i> Customer Details</h3>
+                            <p style="font-size: 0.9rem; color:#475569; margin-top:0.25rem;"><strong>Service Address:</strong> 124 Eco-Green Lane, Suite A</p>
+                            <p style="font-size: 0.9rem; color:#475569;"><strong>Subscription Level:</strong> Premium Residential (64-Gallon Bin)</p>
+                        </div>
+                        <hr style="border: 0; border-top: 1px solid #e2e8f0;">
+                        <div>
+                            <h3 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 0.5rem;"><i class="fas fa-bell" style="color:#10b981;"></i> Notification Settings</h3>
+                            <div style="display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.5rem;">
+                                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor:pointer;">
+                                    <input type="checkbox" checked> SMS reminders 24 hours before pickup
+                                </label>
+                                <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; cursor:pointer;">
+                                    <input type="checkbox" checked> Email invoices and receipts
+                                </label>
+                            </div>
+                        </div>
+                        <hr style="border: 0; border-top: 1px solid #e2e8f0;">
+                        <div>
+                            <h3 style="font-size: 1.1rem; color: #0f172a; margin-bottom: 0.5rem;"><i class="fas fa-headset" style="color:#10b981;"></i> Contact Support</h3>
+                            <p style="font-size: 0.9rem; color:#475569; margin-bottom: 0.5rem;">Need assistance? Send a message to our dispatcher team.</p>
+                            <form id="supportForm" onsubmit="submitSupport(event)">
+                                <div class="form-group">
+                                    <label for="supportMsg">Message</label>
+                                    <textarea id="supportMsg" class="form-control" style="min-height: 80px;" placeholder="How can we help you today?"></textarea>
+                                </div>
+                                <button type="submit" class="card-btn" style="border:none; width: 100%; cursor:pointer;">Send Support Ticket</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="dashboard-footer">
+            <p>&copy; 2026 Stackly Inc. All rights reserved.</p>
+        </footer>
+    </main>
+</div>
+
+<div class="toast" id="toastBox">
+    <i class="fas fa-check-circle"></i>
+    <span id="toastText">Action completed successfully.</span>
+</div>
+
+<script>
+    // Load local storage session email
+    const email = localStorage.getItem('ecoUserEmail') || 'customer@gmail.com';
+    document.getElementById('emailDisplay').innerText = email;
+
+    // Logout handling
+    const performLogout = () => {
+        localStorage.removeItem('ecoUserEmail');
+        window.location.href = 'index.html';
+    };
+
+    document.getElementById('logoutBtn').addEventListener('click', performLogout);
+    
+    const sidebarLogout = document.getElementById('sidebarLogoutBtn');
+    if (sidebarLogout) {
+        sidebarLogout.addEventListener('click', (e) => {
+            e.preventDefault();
+            performLogout();
+        });
+    }
+
+    document.getElementById('requestForm').addEventListener('submit', (e) => {
+        e.preventDefault();
+        const comments = document.getElementById('comments').value.trim();
+        if (comments === '') {
+            triggerToast('Please fill in all required fields.');
+            return;
+        }
+        window.location.href = '404.html';
+    });
+
+    // Sidebar navigation simulation (Tab switching)
+    function navigateDashboard(event, section) {
+        event.preventDefault();
+        
+        // Remove active class from all links
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.classList.remove('active');
+        });
+        
+        // Add active class to clicked link
+        event.currentTarget.classList.add('active');
+
+        // Hide all tab content
+        document.querySelectorAll('.tab-content').forEach(content => {
+            content.classList.remove('active');
+        });
+
+        // Show selected tab content
+        const activeTab = document.getElementById(`tab-${section}`);
+        if (activeTab) {
+            activeTab.classList.add('active');
+        }
+        
+        triggerToast(`Switched view to: ${section.charAt(0).toUpperCase() + section.slice(1)}`);
+    }
+
+    // Submit support helper
+    function submitSupport(event) {
+        event.preventDefault();
+        const msg = document.getElementById('supportMsg').value.trim();
+        if (msg === '') {
+            triggerToast('Please type a message before sending.');
+            return;
+        }
+        document.getElementById('supportMsg').value = '';
+        triggerToast('Support ticket submitted successfully!');
+    }
+
+    // Invoice payment simulator
+    function payInvoice(invoiceId, amount, statusId, btnId) {
+        const badge = document.getElementById(statusId);
+        const btn = document.getElementById(btnId);
+        if (badge) {
+            badge.innerText = 'Paid';
+            badge.className = 'badge badge-paid';
+        }
+        if (btn) {
+            btn.disabled = true;
+            btn.style.background = '#475569';
+            btn.innerText = 'Paid';
+        }
+        
+        // Update both outstanding bill widgets
+        const outstanding = document.getElementById('outstandingBillValue');
+        const tabOutstanding = document.getElementById('tabOutstandingBillValue');
+        if (outstanding) outstanding.innerText = '$0.00';
+        if (tabOutstanding) tabOutstanding.innerText = '$0.00';
+
+        const billBtn = document.getElementById('payBillNowBtn');
+        const tabBillBtn = document.getElementById('tabPayBillNowBtn');
+        if (billBtn) {
+            billBtn.innerText = 'Settled';
+            billBtn.style.background = '#475569';
+            billBtn.style.pointerEvents = 'none';
+        }
+        if (tabBillBtn) {
+            tabBillBtn.innerText = 'Settled';
+            tabBillBtn.style.background = '#475569';
+            tabBillBtn.style.pointerEvents = 'none';
+        }
+        
+        triggerToast(`Success: Paid invoice ${invoiceId} for $${amount.toFixed(2)}.`);
+    }
+
+    // Pay outstanding bill card action
+    function payOutstandingBill(event) {
+        event.preventDefault();
+        payInvoice('#INV-2026-004', 42.50, 'invStatus4', 'payInvBtn4');
+    }
+
+    // Toast triggers
+    function triggerToast(text) {
+        const box = document.getElementById('toastBox');
+        const span = document.getElementById('toastText');
+        span.innerText = text;
+        box.classList.add('show');
+        setTimeout(() => {
+            box.classList.remove('show');
+        }, 4000);
+    }
+</script>
+
+</body>
+</html>
