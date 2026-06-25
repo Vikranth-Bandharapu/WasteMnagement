@@ -85,6 +85,11 @@ body {
     border-color: #ff4a4a;
 }
 
+/* Sidebar Toggle button on mobile */
+.sidebar-toggle-btn {
+    display: none;
+}
+
 /* Dashboard Sidebar Layout */
 .dashboard-layout {
     display: flex;
@@ -109,6 +114,9 @@ body {
     flex-direction: column;
     gap: 0.5rem;
     list-style: none;
+}
+.mobile-close-item {
+    display: none;
 }
 .sidebar-link {
     display: flex;
@@ -483,34 +491,63 @@ body {
         font-size: 0.8rem;
     }
     
-    /* Mobile Sidebar styles */
+    /* Mobile Toggle Sidebar Drawer styles */
+    .sidebar-toggle-btn {
+        display: block !important;
+    }
     .dashboard-layout {
         flex-direction: column;
     }
     .sidebar {
-        position: static;
-        width: 100%;
-        height: auto;
-        padding: 0.5rem 1rem;
-        border-right: none;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        flex-direction: row;
-        overflow-x: auto;
-        white-space: nowrap;
-        gap: 0.5rem;
-        -webkit-overflow-scrolling: touch;
+        position: fixed;
+        top: 0 !important;
+        left: -260px; /* Hidden offscreen by default */
+        width: 260px;
+        height: 100vh !important;
+        background: #1e293b;
+        border-right: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+        z-index: 1100;
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 2rem 1.5rem;
+    }
+    .sidebar.open {
+        left: 0; /* Slide in */
+    }
+    /* Sidebar Backdrop Overlay */
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1050;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+        transition: opacity 0.3s ease;
+    }
+    .sidebar-overlay.active {
+        display: block !important;
+    }
+    .mobile-close-item {
+        display: block !important;
     }
     .sidebar-menu {
-        flex-direction: row;
+        flex-direction: column;
         gap: 0.5rem;
-        width: max-content;
+        width: 100%;
     }
     .sidebar-link {
-        padding: 0.5rem 1rem;
-        font-size: 0.85rem;
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
     }
     .desktop-only-logout {
-        display: none !important;
+        display: block !important;
     }
     .main-content {
         margin-left: 0;
@@ -547,7 +584,12 @@ body {
 <body>
 
 <header class="header">
-    <a href="index.html" class="logo"><img src="Assests/logo.webp" alt="Stackly Logo" class="logo-img"></a>
+    <div style="display: flex; align-items: center; gap: 0.75rem;">
+        <button id="sidebarToggle" class="sidebar-toggle-btn" aria-label="Toggle Sidebar" style="background: transparent; border: none; color: white; font-size: 1.5rem; cursor: pointer; display: none;">
+            <i class="fas fa-bars"></i>
+        </button>
+        <a href="index.html" class="logo"><img src="Assests/logo.webp" alt="Stackly Logo" class="logo-img"></a>
+    </div>
     <div class="user-info">
         <span class="user-role">Operations Manager</span>
         <span class="user-email" id="emailDisplay">Loading Manager...</span>
@@ -559,6 +601,12 @@ body {
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
         <ul class="sidebar-menu">
+            <li class="mobile-close-item" style="margin-bottom: 1rem; border-bottom: 1px solid rgba(255, 255, 255, 0.08); padding-bottom: 0.75rem;">
+                <a href="#" class="sidebar-link" id="sidebarCloseBtn" style="color: #94a3b8; background: transparent;">
+                    <i class="fas fa-times" style="color: #94a3b8;"></i>
+                    <span>Close Menu</span>
+                </a>
+            </li>
             <li>
                 <a href="#" class="sidebar-link active" onclick="navigateDashboard(event, 'overview')">
                     <i class="fas fa-chart-pie"></i>
@@ -918,6 +966,9 @@ body {
     <span id="toastText">Order processed.</span>
 </div>
 
+<!-- Sidebar Overlay for mobile -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
 <script>
     // Load local storage session email
     const email = localStorage.getItem('ecoUserEmail') || 'manager@ecowaste.com';
@@ -963,6 +1014,56 @@ body {
         }
         
         triggerToast(`Switched view to: ${section.charAt(0).toUpperCase() + section.slice(1)}`);
+    }
+
+    // Mobile Sidebar Drawer Toggle Logic
+    const toggleBtn = document.getElementById('sidebarToggle');
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+    const closeBtn = document.getElementById('sidebarCloseBtn');
+    
+    if (toggleBtn && sidebar) {
+        const openSidebar = () => {
+            sidebar.classList.add('open');
+            if (overlay) overlay.classList.add('active');
+        };
+        const closeSidebar = () => {
+            sidebar.classList.remove('open');
+            if (overlay) overlay.classList.remove('active');
+        };
+
+        toggleBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (sidebar.classList.contains('open')) {
+                closeSidebar();
+            } else {
+                openSidebar();
+            }
+        });
+        
+        if (closeBtn) {
+            closeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                closeSidebar();
+            });
+        }
+        
+        // Close sidebar when clicking a link on mobile
+        document.querySelectorAll('.sidebar-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    closeSidebar();
+                }
+            });
+        });
+        
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768 && !sidebar.contains(e.target) && e.target !== toggleBtn && !toggleBtn.contains(e.target)) {
+                closeSidebar();
+            }
+        });
     }
 
     // Process order action (syncs between overview and dispatch tabs)
@@ -1015,6 +1116,7 @@ body {
         "Facility HVAC: Recycling sorting hall ventilation optimized (Energy saving mode)"
     ];
 
+    // Format time
     function formatTime(date) {
         const h = String(date.getHours()).padStart(2, '0');
         const m = String(date.getMinutes()).padStart(2, '0');
@@ -1022,6 +1124,7 @@ body {
         return `[${h}:${m}:${s}]`;
     }
 
+    // Add log message
     function addLogMessage() {
         if (!consoleBox) return;
         const msg = logMessages[Math.floor(Math.random() * logMessages.length)];
@@ -1037,6 +1140,7 @@ body {
         }
     }
 
+    // Append custom log
     function appendCustomLog(text) {
         if (!consoleBox) return;
         const date = new Date();

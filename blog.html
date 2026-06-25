@@ -8,6 +8,39 @@
     <!-- CSS Links -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Sidebar Newsletter Form Styling to prevent horizontal row stretch */
+        .sidebar-newsletter-form {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            width: 100%;
+        }
+        .sidebar-newsletter-form input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: var(--radius-md) !important;
+            padding: 0.75rem 1rem;
+            color: white;
+            box-sizing: border-box;
+        }
+        .sidebar-newsletter-form button {
+            width: 100%;
+            border-radius: var(--radius-md) !important;
+            box-sizing: border-box;
+        }
+        
+        /* Layout overrides to prevent alignment issues */
+        .blog-layout {
+            width: 100%;
+            max-width: 100%;
+        }
+        .blog-sidebar {
+            width: 100%;
+            max-width: 100%;
+        }
+    </style>
 </head>
 <body>
 
@@ -192,7 +225,7 @@
                     <div class="sidebar-widget reveal reveal-fade-up" style="background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%); color: var(--bg-white);">
                         <h4 class="sidebar-title" style="color: var(--bg-white); border-bottom-color: rgba(255, 255, 255, 0.1);">Newsletter</h4>
                         <p style="font-size: 0.875rem; margin-bottom: 1.5rem; color: rgba(255, 255, 255, 0.8);">Get bi-weekly recycling directives, local collection updates, and sustainability tips in your inbox.</p>
-                        <form class="newsletter-form" style="display: flex; flex-direction: column; gap: 0.75rem;">
+                        <form class="sidebar-newsletter-form" style="display: flex; flex-direction: column; gap: 0.75rem;">
                             <input type="email" placeholder="Your email address" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.15); border-radius: var(--radius-md); padding: 0.75rem 1rem; color: white;" required>
                             <button type="submit" class="btn btn-accent btn-sm" style="border-radius: var(--radius-md); width: 100%;">Subscribe</button>
                         </form>

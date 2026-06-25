@@ -375,7 +375,7 @@ button {
 .mobile-nav {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 100%;
     height: 100vh;
     background: rgba(255, 255, 255, 0.95);
@@ -387,11 +387,12 @@ button {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
-    transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-nav.active {
-    right: 0;
+    transform: translateX(0);
 }
 
 .mobile-nav .nav-link {
@@ -2049,6 +2050,20 @@ textarea.form-control {
     .footer-title::after {
         left: 50%;
         transform: translateX(-50%);
+    }
+
+    /* Responsive adjustments to prevent overflow/shifting */
+    .page-banner h1 {
+        font-size: 2.25rem !important;
+    }
+    .featured-post-info {
+        padding: 1.5rem !important;
+    }
+    .sidebar-widget {
+        padding: 1.25rem !important;
+    }
+    .glass-card {
+        padding: 1.25rem !important;
     }
 }
 .header-logo {
