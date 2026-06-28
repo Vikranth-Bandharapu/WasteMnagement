@@ -46,6 +46,7 @@ function initHeaderScroll() {
 function initMobileMenu() {
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const mobileNav = document.querySelector('.mobile-nav');
+    const header = document.querySelector('.header');
     
     if (!mobileMenuBtn || !mobileNav) return;
 
@@ -53,6 +54,9 @@ function initMobileMenu() {
         e.stopPropagation();
         mobileNav.classList.toggle('active');
         document.body.classList.toggle('no-scroll');
+        if (header) {
+            header.classList.toggle('menu-active');
+        }
         
         // Toggle mobile icon (bars vs times)
         const icon = mobileMenuBtn.querySelector('i');
@@ -68,6 +72,9 @@ function initMobileMenu() {
             if (mobileNav.classList.contains('active')) {
                 mobileNav.classList.remove('active');
                 document.body.classList.remove('no-scroll');
+                if (header) {
+                    header.classList.remove('menu-active');
+                }
                 const icon = mobileMenuBtn.querySelector('i');
                 if (icon) {
                     icon.classList.add('fa-bars');

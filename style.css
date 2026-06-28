@@ -367,8 +367,9 @@ button {
     color: var(--bg-white);
 }
 
-.header-light.scrolled .mobile-menu-btn {
-    color: var(--text-dark);
+.header-light.scrolled .mobile-menu-btn,
+.header-light.menu-active .mobile-menu-btn {
+    color: var(--text-dark) !important;
 }
 
 /* Mobile Menu Navigation Dropdown */
@@ -2008,14 +2009,9 @@ textarea.form-control {
     transition: filter 0.3s ease;
 }
 
-.header.scrolled .logo-img {
-    filter: invert(1) brightness(0.2);
-}
-
-@media (max-width: 1023px) {
-    .header .logo-img {
-        filter: invert(1) brightness(0.2) !important;
-    }
+.header.scrolled .logo-img,
+.header.menu-active .logo-img {
+    filter: invert(1) brightness(0.2) !important;
 }
 
 /* Mobile-only adjustments for centering footer elements */
@@ -2064,6 +2060,12 @@ textarea.form-control {
     }
     .glass-card {
         padding: 1.25rem !important;
+    }
+    .blog-card, .featured-post-card {
+        padding: 0 !important;
+    }
+    .blog-info {
+        padding: 1.25rem 1.5rem 1.5rem 1.5rem !important;
     }
 }
 .header-logo {

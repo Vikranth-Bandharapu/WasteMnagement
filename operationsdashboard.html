@@ -777,6 +777,89 @@ body {
                     </div>
                 </div>
             </div>
+            
+            <!-- Sorter Node Health Panel -->
+            <div class="panel" style="margin-top: 2rem;">
+                <h2>Auto-Sorter Facility Diagnostics</h2>
+                <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1rem;">
+                    <div class="metric-card" style="background: rgba(16, 185, 129, 0.03); border-color: rgba(16, 185, 129, 0.15);">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                            <span style="font-size:0.8rem; color:#94a3b8; font-weight:700;">NODE 01 (POLYMERS)</span>
+                            <span class="pulse-dot" style="background-color:#10b981; box-shadow: 0 0 8px #10b981; animation:none; width:10px; height:10px; position:static;"></span>
+                        </div>
+                        <div class="metric-val" style="font-size:1.5rem; color:#f8fafc;">98.4% Acc.</div>
+                        <p class="metric-sub" style="margin-top:0.25rem;">Optical sorter calibrated. Operating temp: 34°C</p>
+                    </div>
+                    
+                    <div class="metric-card" style="background: rgba(16, 185, 129, 0.03); border-color: rgba(16, 185, 129, 0.15);">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                            <span style="font-size:0.8rem; color:#94a3b8; font-weight:700;">NODE 02 (GLASS)</span>
+                            <span class="pulse-dot" style="background-color:#10b981; box-shadow: 0 0 8px #10b981; animation:none; width:10px; height:10px; position:static;"></span>
+                        </div>
+                        <div class="metric-val" style="font-size:1.5rem; color:#f8fafc;">97.9% Acc.</div>
+                        <p class="metric-sub" style="margin-top:0.25rem;">Separators operating at standard pressure.</p>
+                    </div>
+
+                    <div class="metric-card" style="background: rgba(245, 158, 11, 0.03); border-color: rgba(245, 158, 11, 0.15);">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                            <span style="font-size:0.8rem; color:#94a3b8; font-weight:700;">NODE 03 (METALS)</span>
+                            <span class="pulse-dot" style="background-color:#f59e0b; box-shadow: 0 0 8px #f59e0b; animation:none; width:10px; height:10px; position:static;"></span>
+                        </div>
+                        <div class="metric-val" style="font-size:1.5rem; color:#f8fafc;">92.1% Acc.</div>
+                        <p class="metric-sub" style="margin-top:0.25rem; color:#f59e0b;">Minor slag build-up detected. Self-cleaning scheduled.</p>
+                    </div>
+
+                    <div class="metric-card" style="background: rgba(16, 185, 129, 0.03); border-color: rgba(16, 185, 129, 0.15);">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+                            <span style="font-size:0.8rem; color:#94a3b8; font-weight:700;">NODE 04 (FIBERS)</span>
+                            <span class="pulse-dot" style="background-color:#10b981; box-shadow: 0 0 8px #10b981; animation:none; width:10px; height:10px; position:static;"></span>
+                        </div>
+                        <div class="metric-val" style="font-size:1.5rem; color:#f8fafc;">99.1% Acc.</div>
+                        <p class="metric-sub" style="margin-top:0.25rem;">Sensors online. Dust filtration cycle completed.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Critical Alerts & Plant Alarms Registry -->
+            <div class="panel" style="margin-top: 2rem;">
+                <h2>Critical Alerts & Active Plant Alarms</h2>
+                <p style="color: #94a3b8; font-size: 0.875rem; margin-bottom: 1.5rem;">Live system-wide operational anomalies requiring supervisor review.</p>
+                <div style="display: flex; flex-direction: column; gap: 1rem;">
+                    
+                    <div style="background: rgba(239, 68, 68, 0.05); border-left: 4px solid #ef4444; padding: 1rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                        <div style="display: flex; gap: 1rem; align-items: center; min-width: 250px;">
+                            <i class="fas fa-exclamation-circle" style="color: #ef4444; font-size: 1.25rem;"></i>
+                            <div>
+                                <h4 style="font-size: 0.95rem; color: #f8fafc; margin-bottom: 0.15rem;">Node 03 High Temperature Warning</h4>
+                                <p style="font-size: 0.8rem; color: #94a3b8;">Sorter Node 03 (Metals) sensor registered 48°C (Threshold: 45°C).</p>
+                            </div>
+                        </div>
+                        <span style="font-size: 0.75rem; color: #ef4444; font-weight: 700; background: rgba(239, 68, 68, 0.15); padding: 0.25rem 0.5rem; border-radius: 4px; white-space: nowrap;">Active Warning</span>
+                    </div>
+
+                    <div style="background: rgba(245, 158, 11, 0.05); border-left: 4px solid #f59e0b; padding: 1rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                        <div style="display: flex; gap: 1rem; align-items: center; min-width: 250px;">
+                            <i class="fas fa-exclamation-triangle" style="color: #f59e0b; font-size: 1.25rem;"></i>
+                            <div>
+                                <h4 style="font-size: 0.95rem; color: #f8fafc; margin-bottom: 0.15rem;">Truck TRK-802 Route Deviation Detected</h4>
+                                <p style="font-size: 0.8rem; color: #94a3b8;">Vehicle deviated from standard route in Sector 3 (Traffic avoidance?).</p>
+                            </div>
+                        </div>
+                        <span style="font-size: 0.75rem; color: #f59e0b; font-weight: 700; background: rgba(245, 158, 11, 0.15); padding: 0.25rem 0.5rem; border-radius: 4px; white-space: nowrap;">Informational</span>
+                    </div>
+
+                    <div style="background: rgba(16, 185, 129, 0.05); border-left: 4px solid #10b981; padding: 1rem; border-radius: 4px; display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap;">
+                        <div style="display: flex; gap: 1rem; align-items: center; min-width: 250px;">
+                            <i class="fas fa-check-circle" style="color: #10b981; font-size: 1.25rem;"></i>
+                            <div>
+                                <h4 style="font-size: 0.95rem; color: #f8fafc; margin-bottom: 0.15rem;">Sorter Bin 04 (Fibers) Compactor Cycled</h4>
+                                <p style="font-size: 0.8rem; color: #94a3b8;">Self-compactor cycled successfully. Capacity reset to 0%.</p>
+                            </div>
+                        </div>
+                        <span style="font-size: 0.75rem; color: #10b981; font-weight: 700; background: rgba(16, 185, 129, 0.15); padding: 0.25rem 0.5rem; border-radius: 4px; white-space: nowrap;">Resolved</span>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Tab: Dispatch Control -->
@@ -892,6 +975,59 @@ body {
                                     </div>
                                 </td>
                                 <td><span class="status-pill status-enroute">En Route</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- Driver Shift Registry -->
+            <div class="panel" style="margin-top: 2.5rem;">
+                <h2>Active Dispatcher Roster Shift Compliance</h2>
+                <div style="overflow-x: auto; width: 100%; margin-top: 1rem;">
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>Driver Name</th>
+                                <th>Assigned Truck</th>
+                                <th>Route Assignment</th>
+                                <th>Shift Start</th>
+                                <th>Route Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Marcus Aurelius</td>
+                                <td>TRK-901</td>
+                                <td>District A (Residential)</td>
+                                <td>06:00 AM</td>
+                                <td><span class="status-pill status-enroute" style="background: rgba(14, 165, 233, 0.15); color: #0ea5e9;">On Route (92%)</span></td>
+                                <td><button class="action-btn" onclick="triggerToast('Alert sent to driver Marcus Aurelius.')">Contact</button></td>
+                            </tr>
+                            <tr>
+                                <td>Lucius Verus</td>
+                                <td>TRK-802</td>
+                                <td>District C (Industrial)</td>
+                                <td>06:30 AM</td>
+                                <td><span class="status-pill status-enroute" style="background: rgba(14, 165, 233, 0.15); color: #0ea5e9;">On Route (45%)</span></td>
+                                <td><button class="action-btn" onclick="triggerToast('Alert sent to driver Lucius Verus.')">Contact</button></td>
+                            </tr>
+                            <tr>
+                                <td>Diana Prince</td>
+                                <td>TRK-415</td>
+                                <td>District D (Commercial)</td>
+                                <td>07:00 AM</td>
+                                <td><span class="status-pill status-charging" style="background: rgba(245, 158, 11, 0.15); color: #f59e0b;">Charging (Hub)</span></td>
+                                <td><button class="action-btn" onclick="triggerToast('Alert sent to driver Diana Prince.')">Contact</button></td>
+                            </tr>
+                            <tr>
+                                <td>Bruce Wayne</td>
+                                <td>TRK-771</td>
+                                <td>District B (Hospitality)</td>
+                                <td>07:30 AM</td>
+                                <td><span class="status-pill status-standby" style="background: rgba(148, 163, 184, 0.15); color: #94a3b8;">Standby (Depot)</span></td>
+                                <td><button class="action-btn" onclick="triggerToast('Alert sent to driver Bruce Wayne.')">Contact</button></td>
                             </tr>
                         </tbody>
                     </table>

@@ -679,13 +679,19 @@ body {
                 </a>
             </li>
             <li>
+                <a href="#" class="sidebar-link" onclick="navigateDashboard(event, 'guide')">
+                    <i class="fas fa-recycle"></i>
+                    <span>Recycling Guide</span>
+                </a>
+            </li>
+            <li>
                 <a href="#" class="sidebar-link" onclick="navigateDashboard(event, 'settings')">
                     <i class="fas fa-cog"></i>
                     <span>Support & Settings</span>
                 </a>
             </li>
             <li class="desktop-only-logout" style="margin-top: auto;">
-                <a href="#" class="sidebar-link" id="sidebarLogoutBtn" style="color: #ef4444;">
+                <a href="index.html" class="sidebar-link" id="sidebarLogoutBtn" style="color: #ef4444;">
                     <i class="fas fa-sign-out-alt" style="color: #ef4444;"></i>
                     <span>Logout</span>
                 </a>
@@ -741,7 +747,7 @@ body {
                     <h3>Outstanding Bill</h3>
                     <div class="card-val" id="outstandingBillValue">$42.50</div>
                     <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.25rem;">Billing cycle: June 1 - June 30</p>
-                    <a href="#" class="card-btn" id="payBillNowBtn" onclick="payOutstandingBill(event)">Pay Bill Now</a>
+                    <a href="404.html" class="card-btn" id="payBillNowBtn" onclick="payOutstandingBill(event)">Pay Bill Now</a>
                 </div>
 
                 <div class="card">
@@ -750,6 +756,50 @@ body {
                     <div class="card-val">342 lbs</div>
                     <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.25rem;">Equivalent to 4.8 trees conserved!</p>
                     <a href="404.html" class="card-btn card-btn-outline">View Sustainability Metrics</a>
+                </div>
+            </div>
+            
+            <!-- IoT Smart Bin Fill Levels -->
+            <div class="panel" style="margin-top: 2rem;">
+                <h2>IoT Smart Bin Fill Levels</h2>
+                <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">Real-time container fill percentages via ultrasonic lid sensors.</p>
+                <div class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+                    
+                    <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid #ef4444;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.85rem; font-weight:700; color: #475569;">LANDFILL TRASH</span>
+                            <span class="badge" style="background: rgba(239, 68, 68, 0.1); color: #ef4444; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 4px;">Stable</span>
+                        </div>
+                        <div style="font-size: 2.25rem; font-weight: 700; color: #0f172a; margin: 0.5rem 0;">45%</div>
+                        <div style="background: #f1f5f9; height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 0.5rem;">
+                            <div style="width: 45%; height: 100%; background: #ef4444; border-radius: 4px;"></div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: #64748b;">Capacity: 28.8 Gal / 64 Gal</p>
+                    </div>
+
+                    <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid #10b981;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.85rem; font-weight:700; color: #475569;">SINGLE-STREAM RECYCLE</span>
+                            <span class="badge" style="background: rgba(16, 185, 129, 0.1); color: #10b981; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 4px;">Near Full</span>
+                        </div>
+                        <div style="font-size: 2.25rem; font-weight: 700; color: #0f172a; margin: 0.5rem 0;">82%</div>
+                        <div style="background: #f1f5f9; height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 0.5rem;">
+                            <div style="width: 82%; height: 100%; background: #10b981; border-radius: 4px;"></div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: #ef4444; font-weight: 600;">Recommend placing curbside tonight.</p>
+                    </div>
+
+                    <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; border-top: 4px solid #095a3b;">
+                        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.5rem;">
+                            <span style="font-size: 0.85rem; font-weight:700; color: #475569;">ORGANIC COMPOST</span>
+                            <span class="badge" style="background: rgba(9, 90, 59, 0.1); color: #095a3b; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 4px;">Low</span>
+                        </div>
+                        <div style="font-size: 2.25rem; font-weight: 700; color: #0f172a; margin: 0.5rem 0;">18%</div>
+                        <div style="background: #f1f5f9; height: 8px; border-radius: 4px; overflow: hidden; margin-bottom: 0.5rem;">
+                            <div style="width: 18%; height: 100%; background: #095a3b; border-radius: 4px;"></div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: #64748b;">Capacity: 5.7 Gal / 32 Gal</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -824,6 +874,54 @@ body {
                     </form>
                 </div>
             </div>
+            
+            <!-- Collection History Panel -->
+            <div class="panel" style="margin-top: 2rem;">
+                <h2>Curbside Collection Logs (Past 30 Days)</h2>
+                <div class="table-responsive">
+                    <table class="invoice-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Service Type</th>
+                                <th>Weight (Lbs)</th>
+                                <th>Diversion Rate</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>June 16, 2026</td>
+                                <td>Household Garbage</td>
+                                <td>42 lbs</td>
+                                <td>0% (Landfill)</td>
+                                <td><span class="badge badge-paid">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>June 09, 2026</td>
+                                <td>Recycling & Organics</td>
+                                <td>68 lbs</td>
+                                <td>100% (Diverted)</td>
+                                <td><span class="badge badge-paid">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>June 02, 2026</td>
+                                <td>Household Garbage</td>
+                                <td>38 lbs</td>
+                                <td>0% (Landfill)</td>
+                                <td><span class="badge badge-paid">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>May 26, 2026</td>
+                                <td>Recycling & Organics</td>
+                                <td>74 lbs</td>
+                                <td>100% (Diverted)</td>
+                                <td><span class="badge badge-paid">Completed</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <!-- Tab: Billing -->
@@ -841,7 +939,7 @@ body {
                         <div class="card-val" id="tabOutstandingBillValue" style="font-size: 1.5rem; margin-top:0.1rem;">$42.50</div>
                         <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.15rem;">Billing cycle: June 1 - June 30</p>
                     </div>
-                    <a href="#" class="card-btn" id="tabPayBillNowBtn" style="margin-top:0; margin-left:auto;" onclick="payOutstandingBill(event)">Pay Outstanding Bill</a>
+                    <a href="404.html" class="card-btn" id="tabPayBillNowBtn" style="margin-top:0; margin-left:auto;" onclick="payOutstandingBill(event)">Pay Outstanding Bill</a>
                 </div>
             </div>
 
@@ -956,6 +1054,55 @@ body {
                     </div>
                 </div>
             </section>
+            
+            <!-- Community Leaderboard Panel -->
+            <div class="panel" style="margin-top: 2rem;">
+                <h2>Community Recycling Leaderboard (District A)</h2>
+                <p style="color: #64748b; font-size: 0.875rem; margin-bottom: 1.5rem;">See how your household compares with neighboring households this month.</p>
+                <div class="table-responsive">
+                    <table class="invoice-table">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Household / Location</th>
+                                <th>Waste Diverted (Lbs)</th>
+                                <th>Recycling Efficiency</th>
+                                <th>Eco Badge</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="background: rgba(16, 185, 129, 0.03);">
+                                <td><strong>#1</strong></td>
+                                <td>GreenLeaf Apartments (Sector 4)</td>
+                                <td>1,240 lbs</td>
+                                <td>94%</td>
+                                <td><span class="badge badge-paid" style="background:#d1fae5; color:#065f46; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 4px;">Master Recycler</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>#2</strong></td>
+                                <td>EcoResidences (Sector 2)</td>
+                                <td>1,180 lbs</td>
+                                <td>91%</td>
+                                <td><span class="badge badge-paid" style="background:#d1fae5; color:#065f46; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 4px;">Master Recycler</span></td>
+                            </tr>
+                            <tr style="border: 2px solid #10b981; font-weight: 600;">
+                                <td><strong>#3</strong></td>
+                                <td><strong>You (124 Eco-Green Lane)</strong></td>
+                                <td><strong>980 lbs</strong></td>
+                                <td><strong>88%</strong></td>
+                                <td><span class="badge badge-paid" style="background:#e0f2fe; color:#0369a1; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 4px;">Eco Active</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>#4</strong></td>
+                                <td>Oakwood Condos (Sector 4)</td>
+                                <td>850 lbs</td>
+                                <td>81%</td>
+                                <td><span class="badge badge-paid" style="background:#e0f2fe; color:#0369a1; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 4px;">Eco Active</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
         <!-- Tab: Settings -->
@@ -999,6 +1146,25 @@ body {
                             </form>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab: Recycling Guide -->
+        <div id="tab-guide" class="tab-content">
+            <div class="welcome-bar">
+                <h1>Interactive Recycling Guide</h1>
+                <p style="color: #64748b;">Search for common household items to find out how to sort them properly.</p>
+            </div>
+            
+            <div class="panel" style="margin-bottom: 2rem;">
+                <h2>Search Waste Items</h2>
+                <div style="display: flex; gap: 1rem; margin-top: 1rem; margin-bottom: 1.5rem;">
+                    <input type="text" id="guideSearchInput" class="form-control" placeholder="Type item (e.g., cardboard, battery, apple cores, glass jar...)" oninput="searchGuide()" style="flex-grow: 1;">
+                </div>
+                
+                <div id="guideResults" class="dashboard-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+                    <!-- Guide Cards will be rendered dynamically -->
                 </div>
             </div>
         </div>
@@ -1189,6 +1355,46 @@ body {
             box.classList.remove('show');
         }, 4000);
     }
+
+    // Interactive Recycling Guide items & search function
+    const guideItems = [
+        { name: 'Plastic Water Bottle', bin: 'Recycling', color: '#10b981', icon: 'fa-prescription-bottle', desc: 'Rinse out before placing in green recycling bin.' },
+        { name: 'Cardboard Delivery Box', bin: 'Recycling', color: '#10b981', icon: 'fa-box', desc: 'Flatten boxes to save space in curbside recycling.' },
+        { name: 'Apple Cores / Food Scraps', bin: 'Organic Composting', color: '#095a3b', icon: 'fa-apple-whole', desc: 'Compost in brown organic bin. No plastic bags.' },
+        { name: 'Alkaline Batteries', bin: 'Hazardous/E-Waste', color: '#f59e0b', icon: 'fa-battery-full', desc: 'Never throw in standard bins. Bring to local e-waste drive.' },
+        { name: 'Glass Pickle Jars', bin: 'Recycling', color: '#10b981', icon: 'fa-glass-water', desc: 'Rinse thoroughly. Metal caps should be recycled separately.' },
+        { name: 'Styrofoam Packaging', bin: 'Trash Landfill', color: '#ef4444', icon: 'fa-dumpster', desc: 'Non-recyclable in curbside bins. Dispose in landfill trash.' },
+        { name: 'Aluminum Soda Cans', bin: 'Recycling', color: '#10b981', icon: 'fa-wine-bottle', desc: 'Fully recyclable. Crushing is recommended but optional.' },
+        { name: 'Used Pizza Boxes', bin: 'Organic Composting', color: '#095a3b', icon: 'fa-pizza-slice', desc: 'Grease-stained paper cannot be recycled, but is compostable!' }
+    ];
+
+    function searchGuide() {
+        const query = document.getElementById('guideSearchInput').value.toLowerCase().trim();
+        const container = document.getElementById('guideResults');
+        if (!container) return;
+        
+        container.innerHTML = '';
+        const filtered = guideItems.filter(item => item.name.toLowerCase().includes(query));
+        
+        if (filtered.length === 0) {
+            container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: #64748b;">No matching items found. Try searching "plastic", "box", "battery", or "glass".</div>';
+            return;
+        }
+
+        filtered.forEach(item => {
+            container.innerHTML += `
+                <div class="card" style="border-left: 5px solid ${item.color}; padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div style="font-size: 1.5rem; color: ${item.color}; margin-bottom: 0.5rem;"><i class="fas ${item.icon}"></i></div>
+                    <h4 style="font-size: 1rem; color: #0f172a; margin-bottom: 0.25rem;">${item.name}</h4>
+                    <span class="badge" style="background: ${item.color}20; color: ${item.color}; align-self: flex-start; margin-bottom: 0.75rem; font-size: 0.75rem; font-weight: 700; padding: 0.25rem 0.5rem; border-radius: 4px;">${item.bin}</span>
+                    <p style="font-size: 0.8125rem; color: #64748b; margin-top: 0.25rem;">${item.desc}</p>
+                </div>
+            `;
+        });
+    }
+
+    // Initialize recycling guide cards
+    setTimeout(searchGuide, 100);
 </script>
 
 </body>
