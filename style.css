@@ -138,6 +138,14 @@ button {
     padding: 6rem 0;
 }
 
+.featured-side-img {
+    border-radius: var(--radius-lg);
+    box-shadow: var(--glass-shadow-large);
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+}
+
 .section-header {
     text-align: center;
     max-width: 700px;
@@ -900,6 +908,7 @@ button {
     width: 100%;
     height: 220px;
     object-fit: cover;
+    display: block;
     transition: var(--transition-slow);
 }
 
@@ -920,6 +929,7 @@ button {
     border-radius: var(--radius-full);
     font-family: 'Outfit', sans-serif;
     letter-spacing: 0.5px;
+    z-index: 10;
 }
 
 .blog-info {
@@ -1501,7 +1511,7 @@ textarea.form-control {
 /* Team Section */
 .team-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -1528,7 +1538,7 @@ textarea.form-control {
 .team-img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
     transition: 0.5s ease;
 }
 
@@ -1713,6 +1723,8 @@ textarea.form-control {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 15% center;
+    display: block;
 }
 
 .featured-post-info {
@@ -1737,6 +1749,7 @@ textarea.form-control {
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+    width: 100%;
 }
 
 .sidebar-widget {
@@ -1745,6 +1758,7 @@ textarea.form-control {
     border-radius: var(--radius-md);
     box-shadow: var(--glass-shadow);
     border: 1px solid rgba(0, 0, 0, 0.03);
+    width: 100%;
 }
 
 .sidebar-title {
@@ -2053,6 +2067,9 @@ textarea.form-control {
     }
 
     /* Responsive adjustments to prevent overflow/shifting */
+    .page-banner {
+        padding: 6rem 0 4rem 0 !important;
+    }
     .page-banner h1 {
         font-size: 2.25rem !important;
     }
@@ -2070,6 +2087,9 @@ textarea.form-control {
     }
     .blog-info {
         padding: 1.25rem 1.5rem 1.5rem 1.5rem !important;
+    }
+    .featured-side-img {
+        height: 240px !important;
     }
 }
 .header-logo {
